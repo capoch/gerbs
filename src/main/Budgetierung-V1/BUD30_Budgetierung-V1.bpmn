@@ -7,7 +7,7 @@
     <sequenceFlow id="flow2" sourceRef="C30001" targetRef="C30002"></sequenceFlow>
     <callActivity id="C30003" name="C30003 Budgetierung Überprüfungen (CHECK)" calledElement="BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1"></callActivity>
     <sequenceFlow id="flow3" sourceRef="C30002" targetRef="C30003"></sequenceFlow>
-    <callActivity id="C30004" name="C30004 Budgetierung Finalisierung (ACT / SEND)" calledElement="BudgetierungFinalisierung.jahresabschluss.iks.gerichte.bs.ch-V1"></callActivity>
+    <callActivity id="C30004" name="C30004 Budgetierung Finalisierung (ACT / SEND)"></callActivity>
     <sequenceFlow id="flow4" sourceRef="C30003" targetRef="C30004"></sequenceFlow>
     <endEvent id="endE999" name="E999 Ende"></endEvent>
     <sequenceFlow id="flow5" sourceRef="C30004" targetRef="endE999"></sequenceFlow>
