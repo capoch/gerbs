@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
+  <process id="HochrechnungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Hochrechnung Durchführung (Subprozess) V1.0.0" isExecutable="true">
+    <documentation>Nächste Task ID: x12029</documentation>
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <sequenceFlow id="flow14" sourceRef="startevent1" targetRef="U22001"></sequenceFlow>
+    <endEvent id="endevent2" name="End"></endEvent>
+    <userTask id="U22001" name="U22001 Recap Report in SAP erstellen"></userTask>
+    <userTask id="U22002" name="U22002 Notwendigkeit Umbuchungen prüfen"></userTask>
+    <userTask id="U22004" name="U22004 Abgrenzungsbuchungen vornehmen"></userTask>
+    <userTask id="U22003" name="U22003 Umbuchungen vornehmen"></userTask>
+    <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
+    <exclusiveGateway id="exclusivegateway2" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow15" sourceRef="U22001" targetRef="U22002"></sequenceFlow>
+    <sequenceFlow id="flow16" sourceRef="U22002" targetRef="exclusivegateway1"></sequenceFlow>
+    <sequenceFlow id="flow17" sourceRef="exclusivegateway1" targetRef="exclusivegateway2"></sequenceFlow>
+    <sequenceFlow id="flow18" sourceRef="exclusivegateway1" targetRef="U22003"></sequenceFlow>
+    <sequenceFlow id="flow19" sourceRef="U22003" targetRef="exclusivegateway2"></sequenceFlow>
+    <sequenceFlow id="flow20" sourceRef="exclusivegateway2" targetRef="U22004"></sequenceFlow>
+    <userTask id="U22006" name="U22006 Info an Personalabteilung"></userTask>
+    <userTask id="U22007" name="U22007 Personaldaten einspielen"></userTask>
+    <scriptTask id="S22005" name="S22005 Hochrechnungslauf in SAP" activiti:autoStoreVariables="false"></scriptTask>
+    <userTask id="U22008" name="U22008 Hochrechnung Personalabteilung"></userTask>
+    <sequenceFlow id="flow21" sourceRef="U22004" targetRef="S22005"></sequenceFlow>
+    <sequenceFlow id="flow22" sourceRef="S22005" targetRef="U22006"></sequenceFlow>
+    <sequenceFlow id="flow23" sourceRef="U22006" targetRef="U22007"></sequenceFlow>
+    <sequenceFlow id="flow24" sourceRef="U22007" targetRef="U22008"></sequenceFlow>
+    <sequenceFlow id="flow25" sourceRef="U22008" targetRef="endevent2"></sequenceFlow>
+    <textAnnotation id="textannotation1">
+      <text>Kontrolle auf Niveau Hauptkonti - bei grösseren Abweichungen, Detailanalyse Unterkonti</text>
+    </textAnnotation>
+    <association id="association1" sourceRef="textannotation1" targetRef="U22002"></association>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_HochrechnungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="HochrechnungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_HochrechnungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1">
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="240.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent2" id="BPMNShape_endevent2">
+        <omgdc:Bounds height="35.0" width="35.0" x="1540.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U22001" id="BPMNShape_U22001">
+        <omgdc:Bounds height="81.0" width="105.0" x="350.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U22002" id="BPMNShape_U22002">
+        <omgdc:Bounds height="81.0" width="105.0" x="480.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U22004" id="BPMNShape_U22004">
+        <omgdc:Bounds height="81.0" width="105.0" x="840.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U22003" id="BPMNShape_U22003">
+        <omgdc:Bounds height="81.0" width="105.0" x="660.0" y="130.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway1" id="BPMNShape_exclusivegateway1">
+        <omgdc:Bounds height="40.0" width="40.0" x="600.0" y="47.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway2" id="BPMNShape_exclusivegateway2">
+        <omgdc:Bounds height="40.0" width="40.0" x="780.0" y="47.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U22006" id="BPMNShape_U22006">
+        <omgdc:Bounds height="81.0" width="105.0" x="1120.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U22007" id="BPMNShape_U22007">
+        <omgdc:Bounds height="81.0" width="105.0" x="1260.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="S22005" id="BPMNShape_S22005">
+        <omgdc:Bounds height="78.0" width="105.0" x="980.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U22008" id="BPMNShape_U22008">
+        <omgdc:Bounds height="81.0" width="105.0" x="1400.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
+        <omgdc:Bounds height="91.0" width="100.0" x="290.0" y="290.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow14" id="BPMNEdge_flow14">
+        <omgdi:waypoint x="275.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="350.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow15" id="BPMNEdge_flow15">
+        <omgdi:waypoint x="455.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="480.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow16" id="BPMNEdge_flow16">
+        <omgdi:waypoint x="585.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="600.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow17" id="BPMNEdge_flow17">
+        <omgdi:waypoint x="640.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="780.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow18" id="BPMNEdge_flow18">
+        <omgdi:waypoint x="620.0" y="87.0"></omgdi:waypoint>
+        <omgdi:waypoint x="620.0" y="170.0"></omgdi:waypoint>
+        <omgdi:waypoint x="660.0" y="170.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow19" id="BPMNEdge_flow19">
+        <omgdi:waypoint x="765.0" y="170.0"></omgdi:waypoint>
+        <omgdi:waypoint x="800.0" y="170.0"></omgdi:waypoint>
+        <omgdi:waypoint x="800.0" y="87.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow20" id="BPMNEdge_flow20">
+        <omgdi:waypoint x="820.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="840.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow21" id="BPMNEdge_flow21">
+        <omgdi:waypoint x="945.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="980.0" y="69.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow22" id="BPMNEdge_flow22">
+        <omgdi:waypoint x="1085.0" y="69.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1120.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow23" id="BPMNEdge_flow23">
+        <omgdi:waypoint x="1225.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1260.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow24" id="BPMNEdge_flow24">
+        <omgdi:waypoint x="1365.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1400.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow25" id="BPMNEdge_flow25">
+        <omgdi:waypoint x="1505.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1540.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="association1" id="BPMNEdge_association1">
+        <omgdi:waypoint x="340.0" y="290.0"></omgdi:waypoint>
+        <omgdi:waypoint x="532.0" y="108.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

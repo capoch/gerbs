@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
+  <process id="HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Hochrechnung Vorbereitung (Subprozess) V1.0.0" isExecutable="true">
+    <userTask id="U21001" name="U21001 Monatsübernahme und Abstimmung Nebenbücher"></userTask>
+    <sequenceFlow id="flow1" sourceRef="messagestartevent1" targetRef="U21001"></sequenceFlow>
+    <userTask id="U21002" name="U21002 Vollständigkeit Rechnungen prüfen"></userTask>
+    <userTask id="U21003" name="U21003 Kontokorrent-Konten abstimmen"></userTask>
+    <userTask id="U21004" name="U21004 Frankaturguthaben anpassen"></userTask>
+    <sequenceFlow id="flow2" sourceRef="U21001" targetRef="U21002"></sequenceFlow>
+    <sequenceFlow id="flow3" sourceRef="U21002" targetRef="U21003"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="U21003" targetRef="U21004"></sequenceFlow>
+    <userTask id="U21005" name="U21005 Stornierte Geldstrafen buchen SG"></userTask>
+    <sequenceFlow id="flow5" sourceRef="U21004" targetRef="U21005"></sequenceFlow>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <sequenceFlow id="flow6" sourceRef="U21005" targetRef="endevent1"></sequenceFlow>
+    <startEvent id="messagestartevent1" name="Message start">
+      <messageEventDefinition></messageEventDefinition>
+    </startEvent>
+    <textAnnotation id="textannotation1">
+      <text>Schreiben der Finanzverwaltung mit Informationen zum Stichtag</text>
+    </textAnnotation>
+    <association id="association1" sourceRef="messagestartevent1" targetRef="textannotation1"></association>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
+      <bpmndi:BPMNShape bpmnElement="U21001" id="BPMNShape_U21001">
+        <omgdc:Bounds height="85.0" width="105.0" x="160.0" y="175.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U21002" id="BPMNShape_U21002">
+        <omgdc:Bounds height="85.0" width="105.0" x="290.0" y="175.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U21003" id="BPMNShape_U21003">
+        <omgdc:Bounds height="85.0" width="105.0" x="420.0" y="175.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U21004" id="BPMNShape_U21004">
+        <omgdc:Bounds height="85.0" width="105.0" x="550.0" y="175.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U21005" id="BPMNShape_U21005">
+        <omgdc:Bounds height="85.0" width="105.0" x="680.0" y="175.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="830.0" y="200.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="messagestartevent1" id="BPMNShape_messagestartevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="81.0" y="200.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
+        <omgdc:Bounds height="61.0" width="100.0" x="16.0" y="100.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="116.0" y="217.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="217.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="265.0" y="217.0"></omgdi:waypoint>
+        <omgdi:waypoint x="290.0" y="217.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="395.0" y="217.0"></omgdi:waypoint>
+        <omgdi:waypoint x="420.0" y="217.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="525.0" y="217.0"></omgdi:waypoint>
+        <omgdi:waypoint x="550.0" y="217.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="655.0" y="217.0"></omgdi:waypoint>
+        <omgdi:waypoint x="680.0" y="217.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="785.0" y="217.0"></omgdi:waypoint>
+        <omgdi:waypoint x="830.0" y="217.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="association1" id="BPMNEdge_association1">
+        <omgdi:waypoint x="98.0" y="200.0"></omgdi:waypoint>
+        <omgdi:waypoint x="66.0" y="161.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

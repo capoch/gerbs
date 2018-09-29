@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
+  <process id="HochrechnungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Hochrechnung Prüfung (Subprozess) V1.0.0" isExecutable="true">
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <userTask id="U23001" name="U23001 Finalen Recap Report erstellen"></userTask>
+    <userTask id="U23002" name="U23002 Begründungen von VCs einfordern"></userTask>
+    <userTask id="U23003" name="U23003 Reminder senden"></userTask>
+    <userTask id="U23004" name="U23004 Zusammenstellung Deckblatt &amp; Begründungen"></userTask>
+    <userTask id="U23005" name="U23005 Deckblatt unterschreiben"></userTask>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U23001"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="U23001" targetRef="U23002"></sequenceFlow>
+    <sequenceFlow id="flow3" sourceRef="U23002" targetRef="parallelgateway1"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="U23003" targetRef="parallelgateway2"></sequenceFlow>
+    <sequenceFlow id="flow5" sourceRef="U23004" targetRef="U23005"></sequenceFlow>
+    <sequenceFlow id="flow6" sourceRef="U23005" targetRef="endevent1"></sequenceFlow>
+    <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
+    <sequenceFlow id="flow7" sourceRef="parallelgateway1" targetRef="U23003"></sequenceFlow>
+    <parallelGateway id="parallelgateway2" name="Parallel Gateway"></parallelGateway>
+    <sequenceFlow id="flow8" sourceRef="parallelgateway1" targetRef="messageintermediatecatchevent1"></sequenceFlow>
+    <intermediateCatchEvent id="messageintermediatecatchevent1" name="MessageCatchEvent">
+      <messageEventDefinition></messageEventDefinition>
+    </intermediateCatchEvent>
+    <sequenceFlow id="flow9" sourceRef="messageintermediatecatchevent1" targetRef="parallelgateway2"></sequenceFlow>
+    <sequenceFlow id="flow10" sourceRef="parallelgateway2" targetRef="U23004"></sequenceFlow>
+    <textAnnotation id="textannotation1">
+      <text>Rückmeldung VCs</text>
+    </textAnnotation>
+    <association id="association1" sourceRef="messageintermediatecatchevent1" targetRef="textannotation1"></association>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_HochrechnungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="HochrechnungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_HochrechnungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1">
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="60.0" y="81.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="1010.0" y="81.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U23001" id="BPMNShape_U23001">
+        <omgdc:Bounds height="83.0" width="105.0" x="140.0" y="57.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U23002" id="BPMNShape_U23002">
+        <omgdc:Bounds height="83.0" width="105.0" x="280.0" y="57.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U23003" id="BPMNShape_U23003">
+        <omgdc:Bounds height="83.0" width="105.0" x="476.0" y="212.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U23004" id="BPMNShape_U23004">
+        <omgdc:Bounds height="83.0" width="105.0" x="700.0" y="57.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U23005" id="BPMNShape_U23005">
+        <omgdc:Bounds height="83.0" width="105.0" x="850.0" y="57.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="parallelgateway1" id="BPMNShape_parallelgateway1">
+        <omgdc:Bounds height="40.0" width="40.0" x="430.0" y="78.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="parallelgateway2" id="BPMNShape_parallelgateway2">
+        <omgdc:Bounds height="40.0" width="40.0" x="580.0" y="78.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="messageintermediatecatchevent1" id="BPMNShape_messageintermediatecatchevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="511.0" y="81.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
+        <omgdc:Bounds height="50.0" width="100.0" x="500.0" y="1.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="95.0" y="98.0"></omgdi:waypoint>
+        <omgdi:waypoint x="140.0" y="98.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="245.0" y="98.0"></omgdi:waypoint>
+        <omgdi:waypoint x="280.0" y="98.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="385.0" y="98.0"></omgdi:waypoint>
+        <omgdi:waypoint x="430.0" y="98.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="581.0" y="253.0"></omgdi:waypoint>
+        <omgdi:waypoint x="600.0" y="253.0"></omgdi:waypoint>
+        <omgdi:waypoint x="600.0" y="118.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="805.0" y="98.0"></omgdi:waypoint>
+        <omgdi:waypoint x="850.0" y="98.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="955.0" y="98.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1010.0" y="98.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="450.0" y="118.0"></omgdi:waypoint>
+        <omgdi:waypoint x="450.0" y="252.0"></omgdi:waypoint>
+        <omgdi:waypoint x="476.0" y="253.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
+        <omgdi:waypoint x="470.0" y="98.0"></omgdi:waypoint>
+        <omgdi:waypoint x="511.0" y="98.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow9" id="BPMNEdge_flow9">
+        <omgdi:waypoint x="546.0" y="98.0"></omgdi:waypoint>
+        <omgdi:waypoint x="580.0" y="98.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow10" id="BPMNEdge_flow10">
+        <omgdi:waypoint x="620.0" y="98.0"></omgdi:waypoint>
+        <omgdi:waypoint x="700.0" y="98.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="association1" id="BPMNEdge_association1">
+        <omgdi:waypoint x="528.0" y="81.0"></omgdi:waypoint>
+        <omgdi:waypoint x="550.0" y="51.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
+  <process id="BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Budgetierung Prüfung (Subprozess) V1.0.0" isExecutable="true">
+    <userTask id="U33008" name="U33008 Finale Freigabe durch Grossen Rat"></userTask>
+    <userTask id="U33001" name="U33001 1. Lesung im Grosen Rat"></userTask>
+    <userTask id="U33002" name="U33002 2. Lesung im Grossen Rat"></userTask>
+    <exclusiveGateway id="exclusivegateway3" name="Exclusive Gateway" default="flow31"></exclusiveGateway>
+    <userTask id="U33004" name="U33004 Entsperrung Daten SAP"></userTask>
+    <userTask id="U33005" name="U33005 Korrekturen vornehmen"></userTask>
+    <exclusiveGateway id="exclusivegateway4" name="Exclusive Gateway"></exclusiveGateway>
+    <userTask id="U33006" name="U33006 Budgetsitzungder Finanzkommission"></userTask>
+    <sequenceFlow id="flow28" name="Anpassungen notwendig" sourceRef="exclusivegateway3" targetRef="U33004"></sequenceFlow>
+    <sequenceFlow id="flow29" sourceRef="U33004" targetRef="U33005"></sequenceFlow>
+    <sequenceFlow id="flow31" sourceRef="exclusivegateway3" targetRef="exclusivegateway4"></sequenceFlow>
+    <sequenceFlow id="flow32" sourceRef="exclusivegateway4" targetRef="U33006"></sequenceFlow>
+    <sequenceFlow id="flow33" sourceRef="U33006" targetRef="exclusivegateway5"></sequenceFlow>
+    <exclusiveGateway id="exclusivegateway5" name="Exclusive Gateway"></exclusiveGateway>
+    <userTask id="U33007" name="U33007 Korrektur Budgetzahlen ZR"></userTask>
+    <sequenceFlow id="flow34" sourceRef="exclusivegateway5" targetRef="U33007"></sequenceFlow>
+    <exclusiveGateway id="exclusivegateway6" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow36" sourceRef="exclusivegateway5" targetRef="exclusivegateway6"></sequenceFlow>
+    <sequenceFlow id="flow37" sourceRef="exclusivegateway6" targetRef="U33008"></sequenceFlow>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <sequenceFlow id="flow39" sourceRef="U33008" targetRef="endevent1"></sequenceFlow>
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <sequenceFlow id="flow40" sourceRef="startevent1" targetRef="U33001"></sequenceFlow>
+    <sequenceFlow id="flow41" sourceRef="U33001" targetRef="U33002"></sequenceFlow>
+    <sequenceFlow id="flow42" sourceRef="U33002" targetRef="U33003"></sequenceFlow>
+    <sequenceFlow id="flow43" sourceRef="U33005" targetRef="exclusivegateway4"></sequenceFlow>
+    <sequenceFlow id="flow44" sourceRef="U33007" targetRef="exclusivegateway6"></sequenceFlow>
+    <serviceTask id="U33003" name="U33003 Feedback FD" activiti:type="mail"></serviceTask>
+    <sequenceFlow id="flow45" sourceRef="U33003" targetRef="exclusivegateway3"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1">
+      <bpmndi:BPMNShape bpmnElement="U33008" id="BPMNShape_U33008">
+        <omgdc:Bounds height="85.0" width="105.0" x="1409.0" y="94.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U33001" id="BPMNShape_U33001">
+        <omgdc:Bounds height="85.0" width="105.0" x="191.0" y="94.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U33002" id="BPMNShape_U33002">
+        <omgdc:Bounds height="85.0" width="105.0" x="331.0" y="94.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway3" id="BPMNShape_exclusivegateway3">
+        <omgdc:Bounds height="40.0" width="40.0" x="601.0" y="116.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U33004" id="BPMNShape_U33004">
+        <omgdc:Bounds height="85.0" width="105.0" x="671.0" y="213.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U33005" id="BPMNShape_U33005">
+        <omgdc:Bounds height="85.0" width="105.0" x="811.0" y="213.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway4" id="BPMNShape_exclusivegateway4">
+        <omgdc:Bounds height="40.0" width="40.0" x="941.0" y="116.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U33006" id="BPMNShape_U33006">
+        <omgdc:Bounds height="85.0" width="105.0" x="1011.0" y="94.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway5" id="BPMNShape_exclusivegateway5">
+        <omgdc:Bounds height="40.0" width="40.0" x="1141.0" y="116.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U33007" id="BPMNShape_U33007">
+        <omgdc:Bounds height="85.0" width="105.0" x="1201.0" y="181.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway6" id="BPMNShape_exclusivegateway6">
+        <omgdc:Bounds height="40.0" width="40.0" x="1341.0" y="116.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="1579.0" y="119.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="100.0" y="119.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U33003" id="BPMNShape_U33003">
+        <omgdc:Bounds height="81.0" width="105.0" x="470.0" y="96.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow28" id="BPMNEdge_flow28">
+        <omgdi:waypoint x="621.0" y="156.0"></omgdi:waypoint>
+        <omgdi:waypoint x="621.0" y="255.0"></omgdi:waypoint>
+        <omgdi:waypoint x="671.0" y="255.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="39.0" width="100.0" x="542.0" y="203.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow29" id="BPMNEdge_flow29">
+        <omgdi:waypoint x="776.0" y="255.0"></omgdi:waypoint>
+        <omgdi:waypoint x="811.0" y="255.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow31" id="BPMNEdge_flow31">
+        <omgdi:waypoint x="641.0" y="136.0"></omgdi:waypoint>
+        <omgdi:waypoint x="941.0" y="136.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow32" id="BPMNEdge_flow32">
+        <omgdi:waypoint x="981.0" y="136.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1011.0" y="136.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow33" id="BPMNEdge_flow33">
+        <omgdi:waypoint x="1116.0" y="136.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1141.0" y="136.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow34" id="BPMNEdge_flow34">
+        <omgdi:waypoint x="1161.0" y="156.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1161.0" y="223.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1201.0" y="223.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow36" id="BPMNEdge_flow36">
+        <omgdi:waypoint x="1181.0" y="136.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1341.0" y="136.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow37" id="BPMNEdge_flow37">
+        <omgdi:waypoint x="1381.0" y="136.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1409.0" y="136.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow39" id="BPMNEdge_flow39">
+        <omgdi:waypoint x="1514.0" y="136.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1579.0" y="136.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow40" id="BPMNEdge_flow40">
+        <omgdi:waypoint x="135.0" y="136.0"></omgdi:waypoint>
+        <omgdi:waypoint x="191.0" y="136.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow41" id="BPMNEdge_flow41">
+        <omgdi:waypoint x="296.0" y="136.0"></omgdi:waypoint>
+        <omgdi:waypoint x="331.0" y="136.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow42" id="BPMNEdge_flow42">
+        <omgdi:waypoint x="436.0" y="136.0"></omgdi:waypoint>
+        <omgdi:waypoint x="470.0" y="136.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow43" id="BPMNEdge_flow43">
+        <omgdi:waypoint x="916.0" y="255.0"></omgdi:waypoint>
+        <omgdi:waypoint x="961.0" y="255.0"></omgdi:waypoint>
+        <omgdi:waypoint x="961.0" y="156.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow44" id="BPMNEdge_flow44">
+        <omgdi:waypoint x="1306.0" y="223.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1361.0" y="223.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1361.0" y="156.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow45" id="BPMNEdge_flow45">
+        <omgdi:waypoint x="575.0" y="136.0"></omgdi:waypoint>
+        <omgdi:waypoint x="601.0" y="136.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
