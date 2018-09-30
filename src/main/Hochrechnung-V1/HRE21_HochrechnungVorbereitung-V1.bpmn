@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
   <process id="HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Hochrechnung Vorbereitung (Subprozess) V1.0.0" isExecutable="true">
-    <userTask id="U21001" name="U21001 Monatsübernahme und Abstimmung Nebenbücher"></userTask>
+    <userTask id="U21001" name="U21001 Monatsübernahme und Nebenbücher abstimmen"></userTask>
     <sequenceFlow id="flow1" sourceRef="messagestartevent1" targetRef="U21001"></sequenceFlow>
     <userTask id="U21002" name="U21002 Vollständigkeit Rechnungen prüfen"></userTask>
     <userTask id="U21003" name="U21003 Kontokorrent-Konten abstimmen"></userTask>

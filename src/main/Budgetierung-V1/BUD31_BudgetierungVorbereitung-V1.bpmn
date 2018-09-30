@@ -3,11 +3,11 @@
   <process id="BudgetierungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Budgetierung Vorbereitung (Subprozess) V1.0.0" isExecutable="true">
     <endEvent id="endevent1" name="End"></endEvent>
     <startEvent id="startevent1" name="Start"></startEvent>
-    <userTask id="usertask1" name="U31001 Budget Vrojahr prüfen"></userTask>
+    <userTask id="U31001" name="U31001 Budget Vorjahr prüfen"></userTask>
     <userTask id="U31002" name="U31002 Budgetanträge stellen"></userTask>
-    <userTask id="U31003" name="U31003 Konsolidierung Budgetanträge durch VCG"></userTask>
-    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
-    <sequenceFlow id="flow2" sourceRef="usertask1" targetRef="U31002"></sequenceFlow>
+    <userTask id="U31003" name="U31003 Budgetanträge konsolidieren (VCG)"></userTask>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U31001"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="U31001" targetRef="U31002"></sequenceFlow>
     <sequenceFlow id="flow3" sourceRef="U31002" targetRef="U31003"></sequenceFlow>
     <sequenceFlow id="flow4" sourceRef="U31003" targetRef="usertask2"></sequenceFlow>
     <userTask id="usertask2" name="U31004 Präsentation Gerichtsrat"></userTask>
@@ -21,7 +21,7 @@
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="120.0" y="50.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+      <bpmndi:BPMNShape bpmnElement="U31001" id="BPMNShape_U31001">
         <omgdc:Bounds height="81.0" width="105.0" x="210.0" y="27.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="U31002" id="BPMNShape_U31002">

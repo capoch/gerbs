@@ -17,10 +17,10 @@
     <sequenceFlow id="flow18" sourceRef="exclusivegateway1" targetRef="U22003"></sequenceFlow>
     <sequenceFlow id="flow19" sourceRef="U22003" targetRef="exclusivegateway2"></sequenceFlow>
     <sequenceFlow id="flow20" sourceRef="exclusivegateway2" targetRef="U22004"></sequenceFlow>
-    <userTask id="U22006" name="U22006 Info an Personalabteilung"></userTask>
+    <userTask id="U22006" name="U22006 Info an Personalabteilung versenden"></userTask>
     <userTask id="U22007" name="U22007 Personaldaten einspielen"></userTask>
-    <scriptTask id="S22005" name="S22005 Hochrechnungslauf in SAP" activiti:autoStoreVariables="false"></scriptTask>
-    <userTask id="U22008" name="U22008 Hochrechnung Personalabteilung"></userTask>
+    <scriptTask id="S22005" name="S22005 Hochrechnungslauf in SAP durchführen" activiti:autoStoreVariables="false"></scriptTask>
+    <userTask id="U22008" name="U22008 Hochrechnung Personalabteilung durchführen"></userTask>
     <sequenceFlow id="flow21" sourceRef="U22004" targetRef="S22005"></sequenceFlow>
     <sequenceFlow id="flow22" sourceRef="S22005" targetRef="U22006"></sequenceFlow>
     <sequenceFlow id="flow23" sourceRef="U22006" targetRef="U22007"></sequenceFlow>

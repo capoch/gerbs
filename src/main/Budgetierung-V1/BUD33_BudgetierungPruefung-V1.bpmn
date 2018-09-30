@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
   <process id="BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Budgetierung Prüfung (Subprozess) V1.0.0" isExecutable="true">
-    <userTask id="U33010" name="U33010 Finale Freigabe durch Grossen Rat"></userTask>
+    <userTask id="U33010" name="U33010 Finale Freigabe erteilen (Grosser Rat)"></userTask>
     <userTask id="U33003" name="U33003 1. Lesung im Grosen Rat"></userTask>
     <userTask id="U33004" name="U33004 2. Lesung im Grossen Rat"></userTask>
     <exclusiveGateway id="exclusivegateway3" name="Exclusive Gateway" default="flow31"></exclusiveGateway>
-    <userTask id="U33006" name="U33006 Entsperrung Daten SAP"></userTask>
+    <userTask id="U33006" name="U33006 Daten SAP entsperren"></userTask>
     <userTask id="U33007" name="U33007 Korrekturen vornehmen"></userTask>
     <exclusiveGateway id="exclusivegateway4" name="Exclusive Gateway"></exclusiveGateway>
-    <userTask id="U33008" name="U33008 Budgetsitzungder Finanzkommission"></userTask>
+    <userTask id="U33008" name="U33008 Budgetsitzung der Finanzkommission"></userTask>
     <sequenceFlow id="flow31" sourceRef="exclusivegateway3" targetRef="exclusivegateway4"></sequenceFlow>
     <exclusiveGateway id="exclusivegateway5" name="Exclusive Gateway"></exclusiveGateway>
-    <userTask id="U33009" name="U33009 Korrektur Budgetzahlen ZR"></userTask>
+    <userTask id="U33009" name="U33009 Budgetzahlen korrigieren (ZR)"></userTask>
     <sequenceFlow id="flow34" sourceRef="exclusivegateway5" targetRef="U33009"></sequenceFlow>
     <exclusiveGateway id="exclusivegateway6" name="Exclusive Gateway"></exclusiveGateway>
     <sequenceFlow id="flow36" sourceRef="exclusivegateway5" targetRef="exclusivegateway6"></sequenceFlow>
@@ -19,9 +19,9 @@
     <sequenceFlow id="flow39" sourceRef="U33010" targetRef="endevent1"></sequenceFlow>
     <startEvent id="startevent1" name="Start"></startEvent>
     <sequenceFlow id="flow44" sourceRef="U33009" targetRef="exclusivegateway6"></sequenceFlow>
-    <serviceTask id="U33005" name="U33005 Feedback FD" activiti:type="mail"></serviceTask>
-    <userTask id="U33001" name="U33001 Übernahme Budgetdaten aus SAP"></userTask>
-    <scriptTask id="S33002" name="S33002 Sperrung SAP Daten" activiti:autoStoreVariables="false"></scriptTask>
+    <serviceTask id="U33005" name="U33005 Feedback FD versenden" activiti:type="mail"></serviceTask>
+    <userTask id="U33001" name="U33001 Budgetdaten aus SAP übernehmen"></userTask>
+    <scriptTask id="S33002" name="S33002 SAP Daten sperren" activiti:autoStoreVariables="false"></scriptTask>
     <sequenceFlow id="flow45" sourceRef="startevent1" targetRef="U33001"></sequenceFlow>
     <sequenceFlow id="flow46" sourceRef="U33001" targetRef="S33002"></sequenceFlow>
     <sequenceFlow id="flow47" sourceRef="S33002" targetRef="U33003"></sequenceFlow>

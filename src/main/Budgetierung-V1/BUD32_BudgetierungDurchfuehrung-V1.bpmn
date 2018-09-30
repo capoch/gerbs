@@ -5,16 +5,16 @@
     <startEvent id="startevent1" name="Start"></startEvent>
     <endEvent id="endevent2" name="End"></endEvent>
     <userTask id="U32001 " name="U32001 Informelle Revision mit FD und Kanton"></userTask>
-    <userTask id="U32002" name="U32002 Provisorische Bestätigung Budget durch FD"></userTask>
-    <userTask id="U32003" name="U32003 Interne Budgetverteilung unter den Gerichten"></userTask>
-    <userTask id="usertask1" name="U32004 Eingabe Budgetdetails in SAP"></userTask>
+    <userTask id="U32002" name="U32002 Budget provisorisch bestätigen (FD)"></userTask>
+    <userTask id="U32003" name="U32003 Budgets intern unter den Gerichten verteilen"></userTask>
+    <userTask id="U32004" name="U32004 Budgetdetails in SAP eingeben"></userTask>
     <userTask id="U32005" name="U32005 Details konsolidierte Budgets überprüfen"></userTask>
     <endEvent id="endevent3" name="End"></endEvent>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U32001 "></sequenceFlow>
     <sequenceFlow id="flow2" sourceRef="U32001 " targetRef="U32002"></sequenceFlow>
     <sequenceFlow id="flow3" sourceRef="U32002" targetRef="U32003"></sequenceFlow>
-    <sequenceFlow id="flow4" sourceRef="U32003" targetRef="usertask1"></sequenceFlow>
-    <sequenceFlow id="flow5" sourceRef="usertask1" targetRef="U32005"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="U32003" targetRef="U32004"></sequenceFlow>
+    <sequenceFlow id="flow5" sourceRef="U32004" targetRef="U32005"></sequenceFlow>
     <sequenceFlow id="flow6" sourceRef="U32005" targetRef="endevent3"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_BudgetierungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1">
@@ -34,7 +34,7 @@
       <bpmndi:BPMNShape bpmnElement="U32003" id="BPMNShape_U32003">
         <omgdc:Bounds height="81.0" width="105.0" x="600.0" y="40.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+      <bpmndi:BPMNShape bpmnElement="U32004" id="BPMNShape_U32004">
         <omgdc:Bounds height="81.0" width="105.0" x="740.0" y="40.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="U32005" id="BPMNShape_U32005">

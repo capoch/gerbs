@@ -10,8 +10,8 @@
       <parallelGateway id="parallelgateway1" name="Exclusive Gateway"></parallelGateway>
       <userTask id="usertask2" name="U11102 Erinnerung ausstehende Kreditorenrechnungen IT-Projekte"></userTask>
       <sequenceFlow id="flow4" sourceRef="parallelgateway1" targetRef="usertask2"></sequenceFlow>
-      <userTask id="usertask3" name="U11103 Anfrage IT-Projekte Aktivierungsdatum"></userTask>
-      <sequenceFlow id="flow5" sourceRef="parallelgateway1" targetRef="usertask3"></sequenceFlow>
+      <userTask id="U11103" name="U11103 IT-Projekte Aktivierungsdatum anfragen"></userTask>
+      <sequenceFlow id="flow5" sourceRef="parallelgateway1" targetRef="U11103"></sequenceFlow>
       <userTask id="usertask4" name="U11101 Rundschreiben Termine JA"></userTask>
       <sequenceFlow id="flow6" sourceRef="parallelgateway1" targetRef="usertask4"></sequenceFlow>
       <sequenceFlow id="flow7" sourceRef="usertask2" targetRef="parallelgateway2"></sequenceFlow>
@@ -19,7 +19,7 @@
       <endEvent id="endevent1" name="End"></endEvent>
       <sequenceFlow id="flow8" sourceRef="parallelgateway2" targetRef="endevent1"></sequenceFlow>
       <sequenceFlow id="flow9" sourceRef="usertask4" targetRef="parallelgateway2"></sequenceFlow>
-      <sequenceFlow id="flow10" sourceRef="usertask3" targetRef="parallelgateway2"></sequenceFlow>
+      <sequenceFlow id="flow10" sourceRef="U11103" targetRef="parallelgateway2"></sequenceFlow>
     </subProcess>
     <sequenceFlow id="flow2" sourceRef="usertask1" targetRef="subprocess1"></sequenceFlow>
     <endEvent id="endevent2" name="End"></endEvent>
@@ -47,8 +47,8 @@
     <sequenceFlow id="flow26" sourceRef="parallelgateway7" targetRef="usertask11"></sequenceFlow>
     <userTask id="usertask12" name="U11007 Anfrage Strafgericht ergänzen"></userTask>
     <sequenceFlow id="flow27" sourceRef="parallelgateway7" targetRef="usertask12"></sequenceFlow>
-    <userTask id="usertask13" name="U11008 Anpassung Frankaturmaschinen (Guthabensaldo)"></userTask>
-    <sequenceFlow id="flow28" sourceRef="parallelgateway7" targetRef="usertask13"></sequenceFlow>
+    <userTask id="U11008" name="U11008 Frankaturmaschinen (Guthabensaldo) anpassen"></userTask>
+    <sequenceFlow id="flow28" sourceRef="parallelgateway7" targetRef="U11008"></sequenceFlow>
     <subProcess id="subprocess2" name="S11200 Vorbereitung letzter Zahllauf">
       <userTask id="usertask5" name="U11201 Letzter Zahllauf - Checks"></userTask>
       <boundaryEvent id="S11201.TE1" name="S11201.TE1 Erinnerung letzter Zahllauf" attachedToRef="usertask5" cancelActivity="true">
@@ -72,28 +72,28 @@
     <sequenceFlow id="flow41" sourceRef="subprocess2" targetRef="exclusivegateway5"></sequenceFlow>
     <sequenceFlow id="flow42" sourceRef="servicetask2" targetRef="parallelgateway6"></sequenceFlow>
     <parallelGateway id="parallelgateway8" name="Exclusive Gateway"></parallelGateway>
-    <sequenceFlow id="flow46" sourceRef="usertask13" targetRef="parallelgateway8"></sequenceFlow>
+    <sequenceFlow id="flow46" sourceRef="U11008" targetRef="parallelgateway8"></sequenceFlow>
     <sequenceFlow id="flow47" sourceRef="usertask12" targetRef="parallelgateway8"></sequenceFlow>
     <sequenceFlow id="flow48" sourceRef="usertask11" targetRef="parallelgateway8"></sequenceFlow>
     <sequenceFlow id="flow49" sourceRef="usertask9" targetRef="parallelgateway8"></sequenceFlow>
-    <sequenceFlow id="flow55" sourceRef="parallelgateway7" targetRef="usertask14"></sequenceFlow>
-    <sequenceFlow id="flow56" sourceRef="parallelgateway7" targetRef="usertask17"></sequenceFlow>
+    <sequenceFlow id="flow55" sourceRef="parallelgateway7" targetRef="U11301"></sequenceFlow>
+    <sequenceFlow id="flow56" sourceRef="parallelgateway7" targetRef="U11401"></sequenceFlow>
     <sequenceFlow id="flow59" sourceRef="parallelgateway8" targetRef="endevent2"></sequenceFlow>
     <transaction id="transaction1" name="T11300 Abschluss Staatsanwaltschaftskosten">
-      <userTask id="usertask15" name="U11303 Juris Datenübernahme Abschluss (Übernahme von Nebenbüchersaldi ins Hauptbuch) - DST1120"></userTask>
-      <sequenceFlow id="flow44" sourceRef="usertask15" targetRef="parallelgateway8"></sequenceFlow>
-      <userTask id="usertask18" name="U11302 Kontrolle und Auszahlung Staatsanwaltschaftskonten"></userTask>
-      <sequenceFlow id="flow58" sourceRef="usertask18" targetRef="usertask15"></sequenceFlow>
-      <userTask id="usertask14" name="U11301 Saldierung Staatsanwaltschaftskonten"></userTask>
-      <sequenceFlow id="flow50" sourceRef="usertask14" targetRef="usertask18"></sequenceFlow>
+      <userTask id="U11303" name="U11303 Juris Abschlussdaten übernehmen (Übernahme von Nebenbüchersaldi ins Hauptbuch) - DST1120"></userTask>
+      <sequenceFlow id="flow44" sourceRef="U11303" targetRef="parallelgateway8"></sequenceFlow>
+      <userTask id="U11302" name="U11302 Staatsanwaltschaftskonten kontrollieren und auszahlen"></userTask>
+      <sequenceFlow id="flow58" sourceRef="U11302" targetRef="U11303"></sequenceFlow>
+      <userTask id="U11301" name="U11301 Staatsanwaltschaftskonten saldieren"></userTask>
+      <sequenceFlow id="flow50" sourceRef="U11301" targetRef="U11302"></sequenceFlow>
     </transaction>
     <transaction id="transaction2" name="T11400 Abschluss Erbschaftssteuer">
-      <userTask id="usertask17" name="U11401 Jahresabstimmung Erbschaftssteuer"></userTask>
-      <sequenceFlow id="flow54" sourceRef="usertask17" targetRef="usertask20"></sequenceFlow>
-      <userTask id="usertask20" name="U11402 Kontrolle und Auszahlung Erbschaftssteuer an STV"></userTask>
-      <sequenceFlow id="flow57" sourceRef="usertask20" targetRef="usertask19"></sequenceFlow>
-      <userTask id="usertask19" name="U11403 Juris Datenübernahme Abschluss (Übernahme von Nebenbüchersaldi ins Hauptbuch) - DST1130"></userTask>
-      <sequenceFlow id="flow60" sourceRef="usertask19" targetRef="parallelgateway8"></sequenceFlow>
+      <userTask id="U11401" name="U11401 Jahresabstimmung Erbschaftssteuer durchführen"></userTask>
+      <sequenceFlow id="flow54" sourceRef="U11401" targetRef="U11402"></sequenceFlow>
+      <userTask id="U11402" name="U11402 Erbschaftssteuer an STV kontrollieren und auszahlen"></userTask>
+      <sequenceFlow id="flow57" sourceRef="U11402" targetRef="U11403"></sequenceFlow>
+      <userTask id="U11403" name="U11403 Juris Abschlussdaten übernehmen (Übernahme von Nebenbüchersaldi ins Hauptbuch) - DST1130"></userTask>
+      <sequenceFlow id="flow60" sourceRef="U11403" targetRef="parallelgateway8"></sequenceFlow>
     </transaction>
     <textAnnotation id="textannotation2">
       <text>Ende Dezember (z.B. 27.12.)</text>
@@ -154,10 +154,10 @@ Ende Dezember (normalerweise 27.12.)</text>
   <bpmndi:BPMNDiagram id="BPMNDiagram_JahresabschlussVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
     <bpmndi:BPMNPlane bpmnElement="JahresabschlussVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_JahresabschlussVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
-        <omgdc:Bounds height="35.0" width="35.0" x="337.0" y="530.0"></omgdc:Bounds>
+        <omgdc:Bounds height="35.0" width="35.0" x="320.0" y="531.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
-        <omgdc:Bounds height="85.0" width="105.0" x="420.0" y="505.0"></omgdc:Bounds>
+        <omgdc:Bounds height="97.0" width="135.0" x="391.0" y="499.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="subprocess1" id="BPMNShape_subprocess1">
         <omgdc:Bounds height="361.0" width="491.0" x="590.0" y="367.0"></omgdc:Bounds>
@@ -171,7 +171,7 @@ Ende Dezember (normalerweise 27.12.)</text>
       <bpmndi:BPMNShape bpmnElement="usertask2" id="BPMNShape_usertask2">
         <omgdc:Bounds height="81.0" width="141.0" x="770.0" y="511.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask3" id="BPMNShape_usertask3">
+      <bpmndi:BPMNShape bpmnElement="U11103" id="BPMNShape_U11103">
         <omgdc:Bounds height="81.0" width="141.0" x="770.0" y="623.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask4" id="BPMNShape_usertask4">
@@ -190,7 +190,7 @@ Ende Dezember (normalerweise 27.12.)</text>
         <omgdc:Bounds height="40.0" width="40.0" x="1150.0" y="527.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask7" id="BPMNShape_usertask7">
-        <omgdc:Bounds height="71.0" width="122.0" x="1290.0" y="740.0"></omgdc:Bounds>
+        <omgdc:Bounds height="91.0" width="141.0" x="1290.0" y="730.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="parallelgateway6" id="BPMNShape_parallelgateway6">
         <omgdc:Bounds height="40.0" width="40.0" x="1910.0" y="527.0"></omgdc:Bounds>
@@ -199,16 +199,16 @@ Ende Dezember (normalerweise 27.12.)</text>
         <omgdc:Bounds height="40.0" width="40.0" x="2220.0" y="528.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask8" id="BPMNShape_usertask8">
-        <omgdc:Bounds height="80.0" width="147.0" x="2310.0" y="380.0"></omgdc:Bounds>
+        <omgdc:Bounds height="85.0" width="147.0" x="2310.0" y="376.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask9" id="BPMNShape_usertask9">
-        <omgdc:Bounds height="80.0" width="131.0" x="2729.0" y="380.0"></omgdc:Bounds>
+        <omgdc:Bounds height="87.0" width="137.0" x="2747.0" y="375.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="boundarytimer1" id="BPMNShape_boundarytimer1">
-        <omgdc:Bounds height="30.0" width="30.0" x="2790.0" y="370.0"></omgdc:Bounds>
+        <omgdc:Bounds height="30.0" width="30.0" x="2808.0" y="372.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask10" id="BPMNShape_usertask10">
-        <omgdc:Bounds height="75.0" width="151.0" x="2619.0" y="260.0"></omgdc:Bounds>
+        <omgdc:Bounds height="85.0" width="142.0" x="2619.0" y="250.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="exclusivegateway3" id="BPMNShape_exclusivegateway3">
         <omgdc:Bounds height="40.0" width="40.0" x="2554.0" y="399.0"></omgdc:Bounds>
@@ -217,10 +217,10 @@ Ende Dezember (normalerweise 27.12.)</text>
         <omgdc:Bounds height="86.0" width="151.0" x="2308.0" y="505.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask12" id="BPMNShape_usertask12">
-        <omgdc:Bounds height="71.0" width="135.0" x="2530.0" y="650.0"></omgdc:Bounds>
+        <omgdc:Bounds height="88.0" width="150.0" x="2309.0" y="642.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask13" id="BPMNShape_usertask13">
-        <omgdc:Bounds height="71.0" width="135.0" x="2530.0" y="784.0"></omgdc:Bounds>
+      <bpmndi:BPMNShape bpmnElement="U11008" id="BPMNShape_U11008">
+        <omgdc:Bounds height="92.0" width="149.0" x="2309.0" y="774.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="subprocess2" id="BPMNShape_subprocess2">
         <omgdc:Bounds height="411.0" width="404.0" x="1230.0" y="210.0"></omgdc:Bounds>
@@ -255,25 +255,25 @@ Ende Dezember (normalerweise 27.12.)</text>
       <bpmndi:BPMNShape bpmnElement="transaction1" id="BPMNShape_transaction1">
         <omgdc:Bounds height="181.0" width="789.0" x="2422.0" y="890.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask15" id="BPMNShape_usertask15">
+      <bpmndi:BPMNShape bpmnElement="U11303" id="BPMNShape_U11303">
         <omgdc:Bounds height="95.0" width="151.0" x="2950.0" y="950.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask18" id="BPMNShape_usertask18">
+      <bpmndi:BPMNShape bpmnElement="U11302" id="BPMNShape_U11302">
         <omgdc:Bounds height="95.0" width="137.0" x="2719.0" y="950.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask14" id="BPMNShape_usertask14">
+      <bpmndi:BPMNShape bpmnElement="U11301" id="BPMNShape_U11301">
         <omgdc:Bounds height="95.0" width="151.0" x="2459.0" y="950.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="transaction2" id="BPMNShape_transaction2">
         <omgdc:Bounds height="205.0" width="793.0" x="2420.0" y="1100.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask17" id="BPMNShape_usertask17">
+      <bpmndi:BPMNShape bpmnElement="U11401" id="BPMNShape_U11401">
         <omgdc:Bounds height="94.0" width="146.0" x="2455.0" y="1170.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask20" id="BPMNShape_usertask20">
-        <omgdc:Bounds height="94.0" width="137.0" x="2710.0" y="1170.0"></omgdc:Bounds>
+      <bpmndi:BPMNShape bpmnElement="U11402" id="BPMNShape_U11402">
+        <omgdc:Bounds height="94.0" width="137.0" x="2720.0" y="1170.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask19" id="BPMNShape_usertask19">
+      <bpmndi:BPMNShape bpmnElement="U11403" id="BPMNShape_U11403">
         <omgdc:Bounds height="94.0" width="151.0" x="2950.0" y="1170.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation2" id="BPMNShape_textannotation2">
@@ -313,8 +313,8 @@ Ende Dezember (normalerweise 27.12.)</text>
         <omgdc:Bounds height="50.0" width="161.0" x="1680.0" y="230.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
-        <omgdi:waypoint x="372.0" y="547.0"></omgdi:waypoint>
-        <omgdi:waypoint x="420.0" y="547.0"></omgdi:waypoint>
+        <omgdi:waypoint x="355.0" y="548.0"></omgdi:waypoint>
+        <omgdi:waypoint x="391.0" y="547.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
         <omgdi:waypoint x="655.0" y="551.0"></omgdi:waypoint>
@@ -353,7 +353,7 @@ Ende Dezember (normalerweise 27.12.)</text>
         <omgdi:waypoint x="960.0" y="571.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
-        <omgdi:waypoint x="525.0" y="547.0"></omgdi:waypoint>
+        <omgdi:waypoint x="526.0" y="547.0"></omgdi:waypoint>
         <omgdi:waypoint x="590.0" y="547.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow11" id="BPMNEdge_flow11">
@@ -366,7 +366,7 @@ Ende Dezember (normalerweise 27.12.)</text>
         <omgdi:waypoint x="1290.0" y="775.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow15" id="BPMNEdge_flow15">
-        <omgdi:waypoint x="1412.0" y="775.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1431.0" y="775.0"></omgdi:waypoint>
         <omgdi:waypoint x="1929.0" y="775.0"></omgdi:waypoint>
         <omgdi:waypoint x="1930.0" y="567.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
@@ -377,23 +377,23 @@ Ende Dezember (normalerweise 27.12.)</text>
       <bpmndi:BPMNEdge bpmnElement="flow21" id="BPMNEdge_flow21">
         <omgdi:waypoint x="2240.0" y="528.0"></omgdi:waypoint>
         <omgdi:waypoint x="2239.0" y="419.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2310.0" y="420.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2310.0" y="418.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow22" id="BPMNEdge_flow22">
         <omgdi:waypoint x="2594.0" y="419.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2729.0" y="420.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2747.0" y="418.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow23" id="BPMNEdge_flow23">
-        <omgdi:waypoint x="2805.0" y="370.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2804.0" y="296.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2770.0" y="297.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2823.0" y="372.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2815.0" y="296.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2761.0" y="292.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow24" id="BPMNEdge_flow24">
-        <omgdi:waypoint x="2457.0" y="420.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2457.0" y="418.0"></omgdi:waypoint>
         <omgdi:waypoint x="2554.0" y="419.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow25" id="BPMNEdge_flow25">
-        <omgdi:waypoint x="2619.0" y="297.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2619.0" y="292.0"></omgdi:waypoint>
         <omgdi:waypoint x="2574.0" y="297.0"></omgdi:waypoint>
         <omgdi:waypoint x="2574.0" y="399.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
@@ -404,12 +404,12 @@ Ende Dezember (normalerweise 27.12.)</text>
       <bpmndi:BPMNEdge bpmnElement="flow27" id="BPMNEdge_flow27">
         <omgdi:waypoint x="2240.0" y="568.0"></omgdi:waypoint>
         <omgdi:waypoint x="2241.0" y="685.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2530.0" y="685.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2309.0" y="686.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow28" id="BPMNEdge_flow28">
         <omgdi:waypoint x="2240.0" y="568.0"></omgdi:waypoint>
         <omgdi:waypoint x="2240.0" y="820.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2530.0" y="819.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2309.0" y="820.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow32" id="BPMNEdge_flow32">
         <omgdi:waypoint x="1391.0" y="361.0"></omgdi:waypoint>
@@ -447,12 +447,12 @@ Ende Dezember (normalerweise 27.12.)</text>
         <omgdi:waypoint x="1930.0" y="527.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow46" id="BPMNEdge_flow46">
-        <omgdi:waypoint x="2665.0" y="819.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2458.0" y="820.0"></omgdi:waypoint>
         <omgdi:waypoint x="3260.0" y="820.0"></omgdi:waypoint>
         <omgdi:waypoint x="3260.0" y="568.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow47" id="BPMNEdge_flow47">
-        <omgdi:waypoint x="2665.0" y="685.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2459.0" y="686.0"></omgdi:waypoint>
         <omgdi:waypoint x="3260.0" y="685.0"></omgdi:waypoint>
         <omgdi:waypoint x="3260.0" y="568.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
@@ -461,7 +461,7 @@ Ende Dezember (normalerweise 27.12.)</text>
         <omgdi:waypoint x="3240.0" y="548.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow49" id="BPMNEdge_flow49">
-        <omgdi:waypoint x="2860.0" y="420.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2884.0" y="418.0"></omgdi:waypoint>
         <omgdi:waypoint x="3259.0" y="419.0"></omgdi:waypoint>
         <omgdi:waypoint x="3260.0" y="528.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
@@ -494,10 +494,10 @@ Ende Dezember (normalerweise 27.12.)</text>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow54" id="BPMNEdge_flow54">
         <omgdi:waypoint x="2601.0" y="1217.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2710.0" y="1217.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2720.0" y="1217.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow57" id="BPMNEdge_flow57">
-        <omgdi:waypoint x="2847.0" y="1217.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2857.0" y="1217.0"></omgdi:waypoint>
         <omgdi:waypoint x="2950.0" y="1217.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow60" id="BPMNEdge_flow60">
@@ -507,7 +507,7 @@ Ende Dezember (normalerweise 27.12.)</text>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="association2" id="BPMNEdge_association2">
         <omgdi:waypoint x="1351.0" y="711.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1351.0" y="740.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1360.0" y="730.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="association3" id="BPMNEdge_association3">
         <omgdi:waypoint x="1540.0" y="321.0"></omgdi:waypoint>
@@ -523,19 +523,15 @@ Ende Dezember (normalerweise 27.12.)</text>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="association9" id="BPMNEdge_association9">
         <omgdi:waypoint x="2861.0" y="340.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2805.0" y="370.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="association16" id="BPMNEdge_association16">
-        <omgdi:waypoint x="2680.0" y="755.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2597.0" y="784.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2823.0" y="372.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="association17" id="BPMNEdge_association17">
         <omgdi:waypoint x="2680.0" y="626.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2597.0" y="650.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2384.0" y="642.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="association18" id="BPMNEdge_association18">
         <omgdi:waypoint x="2430.0" y="345.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2383.0" y="380.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2383.0" y="376.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="association19" id="BPMNEdge_association19">
         <omgdi:waypoint x="2470.0" y="495.0"></omgdi:waypoint>
