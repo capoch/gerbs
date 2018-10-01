@@ -7,10 +7,8 @@
     <sequenceFlow id="flow2" sourceRef="C30001" targetRef="C30002"></sequenceFlow>
     <callActivity id="C30003" name="C30003 Budgetierung Überprüfungen (CHECK)" calledElement="BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1"></callActivity>
     <sequenceFlow id="flow3" sourceRef="C30002" targetRef="C30003"></sequenceFlow>
-    <callActivity id="C30004" name="C30004 Budgetierung Finalisierung (ACT / SEND)"></callActivity>
-    <sequenceFlow id="flow4" sourceRef="C30003" targetRef="C30004"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="C30003" targetRef="endE999"></sequenceFlow>
     <endEvent id="endE999" name="E999 Ende"></endEvent>
-    <sequenceFlow id="flow5" sourceRef="C30004" targetRef="endE999"></sequenceFlow>
     <startEvent id="timerstartevent1" name="Timer start">
       <timerEventDefinition></timerEventDefinition>
     </startEvent>
@@ -31,11 +29,8 @@
       <bpmndi:BPMNShape bpmnElement="C30003" id="BPMNShape_C30003">
         <omgdc:Bounds height="91.0" width="141.0" x="690.0" y="182.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="C30004" id="BPMNShape_C30004">
-        <omgdc:Bounds height="91.0" width="141.0" x="890.0" y="182.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endE999" id="BPMNShape_endE999">
-        <omgdc:Bounds height="35.0" width="35.0" x="1080.0" y="210.0"></omgdc:Bounds>
+        <omgdc:Bounds height="35.0" width="35.0" x="900.0" y="210.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="timerstartevent1" id="BPMNShape_timerstartevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="177.0" y="210.0"></omgdc:Bounds>
@@ -57,11 +52,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
         <omgdi:waypoint x="831.0" y="227.0"></omgdi:waypoint>
-        <omgdi:waypoint x="890.0" y="227.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
-        <omgdi:waypoint x="1031.0" y="227.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1080.0" y="227.0"></omgdi:waypoint>
+        <omgdi:waypoint x="900.0" y="227.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="association2" id="BPMNEdge_association2">
         <omgdi:waypoint x="194.0" y="210.0"></omgdi:waypoint>

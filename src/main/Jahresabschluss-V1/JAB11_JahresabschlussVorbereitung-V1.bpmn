@@ -2,7 +2,7 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
   <process id="JahresabschlussVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Jahresabschluss Vorbereitung (Subprozess) V1.0.0" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
-    <userTask id="usertask1" name="U11001 Termine für Jahresabgschluss"></userTask>
+    <userTask id="usertask1" name="U11001 Termine für Jahresabschluss"></userTask>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
     <subProcess id="subprocess1" name="S11100 Erinnerungsschreiben">
       <startEvent id="startevent2" name="Start"></startEvent>
@@ -150,6 +150,7 @@ ausserhalb Standardarbeitszeiten (da System nicht für weitere Buchungen gelockt
 Ende Dezember (normalerweise 27.12.)</text>
     </textAnnotation>
     <association id="association22" sourceRef="textannotation22" targetRef="S11200.TE1"></association>
+    <association id="association23" sourceRef="U11008" targetRef="textannotation11"></association>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_JahresabschlussVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
     <bpmndi:BPMNPlane bpmnElement="JahresabschlussVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_JahresabschlussVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
@@ -385,7 +386,7 @@ Ende Dezember (normalerweise 27.12.)</text>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow23" id="BPMNEdge_flow23">
         <omgdi:waypoint x="2823.0" y="372.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2815.0" y="296.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2822.0" y="293.0"></omgdi:waypoint>
         <omgdi:waypoint x="2761.0" y="292.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow24" id="BPMNEdge_flow24">
@@ -548,6 +549,10 @@ Ende Dezember (normalerweise 27.12.)</text>
       <bpmndi:BPMNEdge bpmnElement="association22" id="BPMNEdge_association22">
         <omgdi:waypoint x="1760.0" y="280.0"></omgdi:waypoint>
         <omgdi:waypoint x="1625.0" y="324.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="association23" id="BPMNEdge_association23">
+        <omgdi:waypoint x="2458.0" y="820.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2730.0" y="780.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

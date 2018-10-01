@@ -20,6 +20,10 @@
       <text>Schreiben der Finanzverwaltung mit Informationen zum Stichtag</text>
     </textAnnotation>
     <association id="association1" sourceRef="messagestartevent1" targetRef="textannotation1"></association>
+    <textAnnotation id="textannotation2">
+      <text>Mitte Mai / September</text>
+    </textAnnotation>
+    <association id="association2" sourceRef="textannotation2" targetRef="U21001"></association>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
     <bpmndi:BPMNPlane bpmnElement="HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
@@ -46,6 +50,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
         <omgdc:Bounds height="61.0" width="100.0" x="16.0" y="100.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="textannotation2" id="BPMNShape_textannotation2">
+        <omgdc:Bounds height="50.0" width="100.0" x="230.0" y="80.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
         <omgdi:waypoint x="116.0" y="217.0"></omgdi:waypoint>
@@ -74,6 +81,10 @@
       <bpmndi:BPMNEdge bpmnElement="association1" id="BPMNEdge_association1">
         <omgdi:waypoint x="98.0" y="200.0"></omgdi:waypoint>
         <omgdi:waypoint x="66.0" y="161.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="association2" id="BPMNEdge_association2">
+        <omgdi:waypoint x="280.0" y="130.0"></omgdi:waypoint>
+        <omgdi:waypoint x="212.0" y="175.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
