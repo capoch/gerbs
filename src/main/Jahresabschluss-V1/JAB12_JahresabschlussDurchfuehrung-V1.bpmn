@@ -3,8 +3,6 @@
   <process id="JahresabschlussDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Jahresabschluss Durchführung (Subprozess) V1.0.0" isExecutable="true">
     <documentation>Nächste Task ID: x12029</documentation>
     <startEvent id="startevent1" name="Start"></startEvent>
-    <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
-    <sequenceFlow id="flow1" sourceRef="exclusivegateway2" targetRef="exclusivegateway1"></sequenceFlow>
     <subProcess id="subprocess1" name="S12100 Nebenbücher Finanzen">
       <multiInstanceLoopCharacteristics isSequential="false">
         <loopCardinality>5</loopCardinality>
@@ -30,16 +28,15 @@
       <sequenceFlow id="flow16" sourceRef="U12112" targetRef="usertask6"></sequenceFlow>
       <sequenceFlow id="flow10" sourceRef="usertask6" targetRef="parallelgateway2"></sequenceFlow>
     </subProcess>
-    <sequenceFlow id="flow2" sourceRef="exclusivegateway1" targetRef="subprocess1"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="parallelgateway9" targetRef="subprocess1"></sequenceFlow>
     <userTask id="U12028" name="U12028 Batch-Input (von Juris) kontrollieren"></userTask>
     <sequenceFlow id="flow3" sourceRef="subprocess1" targetRef="U12028"></sequenceFlow>
     <receiveTask id="U12001" name="U12001 Abschluss Nebenbücher BA und KA bestätigen"></receiveTask>
-    <sequenceFlow id="flow13" sourceRef="exclusivegateway1" targetRef="U12001"></sequenceFlow>
-    <exclusiveGateway id="exclusivegateway2" name="Exclusive Gateway"></exclusiveGateway>
-    <sequenceFlow id="flow14" sourceRef="startevent1" targetRef="exclusivegateway2"></sequenceFlow>
+    <sequenceFlow id="flow13" sourceRef="parallelgateway9" targetRef="U12001"></sequenceFlow>
+    <sequenceFlow id="flow14" sourceRef="startevent1" targetRef="parallelgateway9"></sequenceFlow>
     <endEvent id="endevent2" name="End"></endEvent>
     <receiveTask id="receivetask2" name="U12002 Email von Kanzlei AG"></receiveTask>
-    <sequenceFlow id="flow17" sourceRef="exclusivegateway1" targetRef="receivetask2"></sequenceFlow>
+    <sequenceFlow id="flow17" sourceRef="parallelgateway9" targetRef="receivetask2"></sequenceFlow>
     <boundaryEvent id="boundarytimer1" name="Timer" attachedToRef="receivetask2" cancelActivity="true">
       <timerEventDefinition></timerEventDefinition>
     </boundaryEvent>
@@ -48,10 +45,10 @@
     <userTask id="U12004" name="U12004 Lohnaufwand, Advokatur Examen umbuchen (rein intern in der DS Appellationsgericht) "></userTask>
     <sequenceFlow id="flow19" sourceRef="receivetask2" targetRef="U12004"></sequenceFlow>
     <userTask id="usertask9" name="U12027 Inventarliste ergänzen"></userTask>
-    <sequenceFlow id="flow20" sourceRef="exclusivegateway1" targetRef="usertask9"></sequenceFlow>
+    <sequenceFlow id="flow20" sourceRef="parallelgateway9" targetRef="usertask9"></sequenceFlow>
     <userTask id="usertask10" name="U12005 Antrag auf Neubildung von Rückstellungen grösser 0.5 Mio CHF"></userTask>
-    <sequenceFlow id="flow21" sourceRef="exclusivegateway1" targetRef="usertask10"></sequenceFlow>
-    <sequenceFlow id="flow22" sourceRef="exclusivegateway1" targetRef="parallelgateway3"></sequenceFlow>
+    <sequenceFlow id="flow21" sourceRef="parallelgateway9" targetRef="usertask10"></sequenceFlow>
+    <sequenceFlow id="flow22" sourceRef="parallelgateway9" targetRef="parallelgateway3"></sequenceFlow>
     <parallelGateway id="parallelgateway3" name="Exclusive Gateway"></parallelGateway>
     <userTask id="usertask11" name="U12006 Nachbuchungen Konkursamt"></userTask>
     <sequenceFlow id="flow23" sourceRef="parallelgateway3" targetRef="usertask11"></sequenceFlow>
@@ -61,8 +58,8 @@
     <sequenceFlow id="flow25" sourceRef="usertask11" targetRef="exclusivegateway3"></sequenceFlow>
     <sequenceFlow id="flow26" sourceRef="usertask12" targetRef="exclusivegateway3"></sequenceFlow>
     <userTask id="U12008" name="U12008 Debitoren (Sollstellung und eigenes Gemeinwesen/&quot;inter-company&quot;) bereinigen"></userTask>
-    <sequenceFlow id="flow27" sourceRef="exclusivegateway1" targetRef="U12008"></sequenceFlow>
-    <sequenceFlow id="flow28" sourceRef="exclusivegateway1" targetRef="subprocess2"></sequenceFlow>
+    <sequenceFlow id="flow27" sourceRef="parallelgateway9" targetRef="U12008"></sequenceFlow>
+    <sequenceFlow id="flow28" sourceRef="parallelgateway9" targetRef="subprocess2"></sequenceFlow>
     <subProcess id="subprocess2" name="S12200 Abgleich Kontosaldi je Dienststelle">
       <multiInstanceLoopCharacteristics isSequential="false">
         <loopCardinality>5</loopCardinality>
@@ -89,7 +86,7 @@
     <intermediateCatchEvent id="timerintermediatecatchevent1" name="TimerCatchEvent">
       <timerEventDefinition></timerEventDefinition>
     </intermediateCatchEvent>
-    <sequenceFlow id="flow39" sourceRef="exclusivegateway1" targetRef="timerintermediatecatchevent1"></sequenceFlow>
+    <sequenceFlow id="flow39" sourceRef="parallelgateway9" targetRef="timerintermediatecatchevent1"></sequenceFlow>
     <sequenceFlow id="flow40" sourceRef="timerintermediatecatchevent1" targetRef="parallelgateway4"></sequenceFlow>
     <parallelGateway id="parallelgateway4" name="Exclusive Gateway"></parallelGateway>
     <sequenceFlow id="flow41" sourceRef="parallelgateway4" targetRef="U12009"></sequenceFlow>
@@ -102,8 +99,8 @@
     <parallelGateway id="parallelgateway5" name="Exclusive Gateway"></parallelGateway>
     <sequenceFlow id="flow46" sourceRef="usertask21" targetRef="parallelgateway5"></sequenceFlow>
     <userTask id="U12013" name="U12013 Debitoren (Sollstellung und eigenes Gemeinwesen) bereinigen"></userTask>
-    <sequenceFlow id="flow47" sourceRef="exclusivegateway1" targetRef="U12013"></sequenceFlow>
-    <sequenceFlow id="flow48" sourceRef="exclusivegateway1" targetRef="U12014"></sequenceFlow>
+    <sequenceFlow id="flow47" sourceRef="parallelgateway9" targetRef="U12013"></sequenceFlow>
+    <sequenceFlow id="flow48" sourceRef="parallelgateway9" targetRef="U12014"></sequenceFlow>
     <userTask id="usertask25" name="U12015 Rückerstattungsformular Verrechnungssteuer ausfüllen"></userTask>
     <sequenceFlow id="flow49" sourceRef="U12014" targetRef="usertask25"></sequenceFlow>
     <userTask id="U12016" name="U12016 Umweltabo abgrenzen"></userTask>
@@ -143,13 +140,13 @@
     <sequenceFlow id="flow63" sourceRef="U12013" targetRef="parallelgateway6"></sequenceFlow>
     <sequenceFlow id="flow64" sourceRef="usertask25" targetRef="parallelgateway6"></sequenceFlow>
     <sequenceFlow id="flow65" sourceRef="U12016" targetRef="parallelgateway6"></sequenceFlow>
-    <sequenceFlow id="flow66" sourceRef="exclusivegateway1" targetRef="U12016"></sequenceFlow>
-    <sequenceFlow id="flow67" sourceRef="exclusivegateway1" targetRef="timerintermediatecatchevent2"></sequenceFlow>
-    <sequenceFlow id="flow69" sourceRef="exclusivegateway1" targetRef="timerintermediatecatchevent5"></sequenceFlow>
-    <sequenceFlow id="flow70" sourceRef="exclusivegateway1" targetRef="usertask30"></sequenceFlow>
-    <sequenceFlow id="flow71" sourceRef="exclusivegateway1" targetRef="U12020"></sequenceFlow>
-    <sequenceFlow id="flow72" sourceRef="exclusivegateway1" targetRef="U12021"></sequenceFlow>
-    <sequenceFlow id="flow73" sourceRef="exclusivegateway1" targetRef="timerintermediatecatchevent6"></sequenceFlow>
+    <sequenceFlow id="flow66" sourceRef="parallelgateway9" targetRef="U12016"></sequenceFlow>
+    <sequenceFlow id="flow67" sourceRef="parallelgateway9" targetRef="timerintermediatecatchevent2"></sequenceFlow>
+    <sequenceFlow id="flow69" sourceRef="parallelgateway9" targetRef="timerintermediatecatchevent5"></sequenceFlow>
+    <sequenceFlow id="flow70" sourceRef="parallelgateway9" targetRef="usertask30"></sequenceFlow>
+    <sequenceFlow id="flow71" sourceRef="parallelgateway9" targetRef="U12020"></sequenceFlow>
+    <sequenceFlow id="flow72" sourceRef="parallelgateway9" targetRef="U12021"></sequenceFlow>
+    <sequenceFlow id="flow73" sourceRef="parallelgateway9" targetRef="timerintermediatecatchevent6"></sequenceFlow>
     <sequenceFlow id="flow74" sourceRef="U12017" targetRef="parallelgateway6"></sequenceFlow>
     <sequenceFlow id="flow76" sourceRef="U12018" targetRef="parallelgateway6"></sequenceFlow>
     <sequenceFlow id="flow77" sourceRef="usertask30" targetRef="parallelgateway6"></sequenceFlow>
@@ -171,6 +168,7 @@
     <receiveTask id="U12014" name="U12014 Erhalt Zinsabschlüsse Banken/Konti bestätigen"></receiveTask>
     <receiveTask id="U12011" name="U12011 Eingang Endsalden KA bestätigen (sonst Rückfragen)"></receiveTask>
     <receiveTask id="U12009" name="U12009 Eingang Endsalden BA (sonst Rückfragen) bestätigen"></receiveTask>
+    <parallelGateway id="parallelgateway9" name="Parallel Gateway"></parallelGateway>
     <textAnnotation id="textannotation1">
       <text>Ende Januar</text>
     </textAnnotation>
@@ -211,9 +209,6 @@
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="238.0" y="466.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="exclusivegateway1" id="BPMNShape_exclusivegateway1">
-        <omgdc:Bounds height="40.0" width="40.0" x="456.0" y="463.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="subprocess1" id="BPMNShape_subprocess1">
         <omgdc:Bounds height="341.0" width="921.0" x="600.0" y="77.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
@@ -249,9 +244,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="U12001" id="BPMNShape_U12001">
         <omgdc:Bounds height="71.0" width="141.0" x="750.0" y="448.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="exclusivegateway2" id="BPMNShape_exclusivegateway2">
-        <omgdc:Bounds height="40.0" width="40.0" x="380.0" y="463.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endevent2" id="BPMNShape_endevent2">
         <omgdc:Bounds height="35.0" width="35.0" x="2310.0" y="466.0"></omgdc:Bounds>
@@ -397,6 +389,9 @@
       <bpmndi:BPMNShape bpmnElement="U12009" id="BPMNShape_U12009">
         <omgdc:Bounds height="82.0" width="142.0" x="750.0" y="1700.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="parallelgateway9" id="BPMNShape_parallelgateway9">
+        <omgdc:Bounds height="40.0" width="40.0" x="456.0" y="463.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
         <omgdc:Bounds height="50.0" width="100.0" x="910.0" y="581.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
@@ -421,10 +416,6 @@
       <bpmndi:BPMNShape bpmnElement="textannotation9" id="BPMNShape_textannotation9">
         <omgdc:Bounds height="50.0" width="152.0" x="745.0" y="1820.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
-        <omgdi:waypoint x="420.0" y="483.0"></omgdi:waypoint>
-        <omgdi:waypoint x="456.0" y="483.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
         <omgdi:waypoint x="655.0" y="234.0"></omgdi:waypoint>
         <omgdi:waypoint x="680.0" y="235.0"></omgdi:waypoint>
@@ -485,7 +476,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow14" id="BPMNEdge_flow14">
         <omgdi:waypoint x="273.0" y="483.0"></omgdi:waypoint>
-        <omgdi:waypoint x="380.0" y="483.0"></omgdi:waypoint>
+        <omgdi:waypoint x="456.0" y="483.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow17" id="BPMNEdge_flow17">
         <omgdi:waypoint x="476.0" y="503.0"></omgdi:waypoint>

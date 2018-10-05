@@ -3,7 +3,6 @@
   <process id="BudgetierungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Budgetierung Durchführung (Subprozess) V1.0.0" isExecutable="true">
     <documentation>Nächste Task ID: x12029</documentation>
     <startEvent id="startevent1" name="Start"></startEvent>
-    <endEvent id="endevent2" name="End"></endEvent>
     <userTask id="U32001 " name="U32001 Informelle Revision mit FD und Kanton"></userTask>
     <userTask id="U32002" name="U32002 Budget provisorisch bestätigen (FD)"></userTask>
     <userTask id="U32003" name="U32003 Budgets intern unter den Gerichten verteilen"></userTask>
@@ -21,9 +20,6 @@
     <bpmndi:BPMNPlane bpmnElement="BudgetierungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_BudgetierungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="240.0" y="63.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="endevent2" id="BPMNShape_endevent2">
-        <omgdc:Bounds height="35.0" width="35.0" x="1540.0" y="50.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="U32001 " id="BPMNShape_U32001 ">
         <omgdc:Bounds height="81.0" width="105.0" x="320.0" y="40.0"></omgdc:Bounds>
