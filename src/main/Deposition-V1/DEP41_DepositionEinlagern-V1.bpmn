@@ -3,42 +3,42 @@
   <process id="DepositionEinlagern.jahresabschluss.iks.gerichte.bs.ch-V1" name="Deposition Einlagern (Subprozess) V1.0.0" isExecutable="true">
     <endEvent id="endevent1" name="End"></endEvent>
     <startEvent id="startevent1" name="Start"></startEvent>
-    <userTask id="usertask1" name="Avisierung neue Deposition erhalten"></userTask>
-    <userTask id="usertask2" name="Liferung Deposition entgegennehmen"></userTask>
-    <userTask id="usertask3" name="Depositionsquittung erstellen"></userTask>
+    <userTask id="U41001" name="U41001 Avisierung neue Deposition erhalten"></userTask>
+    <userTask id="U41002" name="U41002 Liferung Deposition entgegennehmen"></userTask>
+    <userTask id="U41005" name="U41005 Depositionsquittung erstellen"></userTask>
     <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
-    <userTask id="usertask5" name="2. Quittungskopie in Ordner ablegen"></userTask>
-    <userTask id="usertask6" name="Deposition neutral verpacken"></userTask>
-    <userTask id="usertask7" name="Quittungskopie an Lieferanten aushändigen"></userTask>
-    <userTask id="usertask8" name="Depositionsquittung beidseitig signieren"></userTask>
-    <userTask id="usertask9" name="Deposition mit Depositionsnr. beschriften"></userTask>
-    <userTask id="usertask10" name="Depositionsliste aktualisieren"></userTask>
-    <userTask id="usertask11" name="Depositionsliste ausdrucken und ablegen"></userTask>
+    <userTask id="U41008" name="U41008 2. Quittungskopie in Ordner ablegen"></userTask>
+    <userTask id="U41006" name="U41006 Deposition neutral verpacken"></userTask>
+    <userTask id="U41007" name="U41007 Quittungskopie an Lieferanten aushändigen"></userTask>
+    <userTask id="U41009" name="U41009 Depositionsquittung beidseitig signieren"></userTask>
+    <userTask id="U41010" name="U41010 Deposition mit Depositionsnr. beschriften"></userTask>
+    <userTask id="U41012" name="U41012 Depositionsliste aktualisieren"></userTask>
+    <userTask id="U41013" name="U41013 Depositionsliste ausdrucken und ablegen"></userTask>
     <parallelGateway id="parallelgateway2" name="Parallel Gateway"></parallelGateway>
-    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
-    <sequenceFlow id="flow2" sourceRef="usertask1" targetRef="usertask2"></sequenceFlow>
-    <sequenceFlow id="flow3" sourceRef="usertask2" targetRef="usertask14"></sequenceFlow>
-    <sequenceFlow id="flow4" sourceRef="parallelgateway1" targetRef="usertask3"></sequenceFlow>
-    <sequenceFlow id="flow5" sourceRef="parallelgateway2" targetRef="usertask8"></sequenceFlow>
-    <sequenceFlow id="flow6" sourceRef="usertask3" targetRef="parallelgateway2"></sequenceFlow>
-    <sequenceFlow id="flow7" sourceRef="parallelgateway2" targetRef="usertask7"></sequenceFlow>
-    <sequenceFlow id="flow8" sourceRef="parallelgateway2" targetRef="usertask5"></sequenceFlow>
-    <sequenceFlow id="flow9" sourceRef="parallelgateway1" targetRef="usertask6"></sequenceFlow>
-    <sequenceFlow id="flow10" sourceRef="usertask11" targetRef="endevent1"></sequenceFlow>
-    <userTask id="usertask12" name="Neue Depositionsnummer vergeben"></userTask>
-    <sequenceFlow id="flow11" sourceRef="usertask14" targetRef="usertask12"></sequenceFlow>
-    <sequenceFlow id="flow12" sourceRef="usertask12" targetRef="parallelgateway1"></sequenceFlow>
-    <sequenceFlow id="flow13" sourceRef="usertask6" targetRef="usertask9"></sequenceFlow>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U41001"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="U41001" targetRef="U41002"></sequenceFlow>
+    <sequenceFlow id="flow3" sourceRef="U41002" targetRef="U41003"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="parallelgateway1" targetRef="U41005"></sequenceFlow>
+    <sequenceFlow id="flow5" sourceRef="parallelgateway2" targetRef="U41009"></sequenceFlow>
+    <sequenceFlow id="flow6" sourceRef="U41005" targetRef="parallelgateway2"></sequenceFlow>
+    <sequenceFlow id="flow7" sourceRef="parallelgateway2" targetRef="U41007"></sequenceFlow>
+    <sequenceFlow id="flow8" sourceRef="parallelgateway2" targetRef="U41008"></sequenceFlow>
+    <sequenceFlow id="flow9" sourceRef="parallelgateway1" targetRef="U41006"></sequenceFlow>
+    <sequenceFlow id="flow10" sourceRef="U41013" targetRef="endevent1"></sequenceFlow>
+    <userTask id="U41004" name="U41004 Neue Depositionsnummer vergeben"></userTask>
+    <sequenceFlow id="flow11" sourceRef="U41003" targetRef="U41004"></sequenceFlow>
+    <sequenceFlow id="flow12" sourceRef="U41004" targetRef="parallelgateway1"></sequenceFlow>
+    <sequenceFlow id="flow13" sourceRef="U41006" targetRef="U41010"></sequenceFlow>
     <parallelGateway id="parallelgateway5" name="Parallel Gateway"></parallelGateway>
-    <sequenceFlow id="flow17" sourceRef="usertask8" targetRef="parallelgateway5"></sequenceFlow>
-    <sequenceFlow id="flow18" sourceRef="usertask9" targetRef="parallelgateway5"></sequenceFlow>
-    <sequenceFlow id="flow19" sourceRef="usertask7" targetRef="parallelgateway5"></sequenceFlow>
-    <sequenceFlow id="flow20" sourceRef="usertask5" targetRef="parallelgateway5"></sequenceFlow>
-    <userTask id="usertask13" name="Quittung, Lieferschein und Depositionsobjek in Safe ablegen"></userTask>
-    <sequenceFlow id="flow21" sourceRef="parallelgateway5" targetRef="usertask13"></sequenceFlow>
-    <sequenceFlow id="flow22" sourceRef="usertask13" targetRef="usertask10"></sequenceFlow>
-    <sequenceFlow id="flow23" sourceRef="usertask10" targetRef="usertask11"></sequenceFlow>
-    <userTask id="usertask14" name="Excel Liste öffnen"></userTask>
+    <sequenceFlow id="flow17" sourceRef="U41009" targetRef="parallelgateway5"></sequenceFlow>
+    <sequenceFlow id="flow18" sourceRef="U41010" targetRef="parallelgateway5"></sequenceFlow>
+    <sequenceFlow id="flow19" sourceRef="U41007" targetRef="parallelgateway5"></sequenceFlow>
+    <sequenceFlow id="flow20" sourceRef="U41008" targetRef="parallelgateway5"></sequenceFlow>
+    <userTask id="U41011" name="U41011 Quittung, Lieferschein und Depositionsobjek in Safe ablegen"></userTask>
+    <sequenceFlow id="flow21" sourceRef="parallelgateway5" targetRef="U41011"></sequenceFlow>
+    <sequenceFlow id="flow22" sourceRef="U41011" targetRef="U41012"></sequenceFlow>
+    <sequenceFlow id="flow23" sourceRef="U41012" targetRef="U41013"></sequenceFlow>
+    <userTask id="U41003" name="U41003 Excel Liste öffnen"></userTask>
     <textAnnotation id="textannotation1">
       <text>Informationen:
 - Depositionsnummer
@@ -66,52 +66,52 @@
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="1.0" y="361.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+      <bpmndi:BPMNShape bpmnElement="U41001" id="BPMNShape_U41001">
         <omgdc:Bounds height="81.0" width="111.0" x="71.0" y="338.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask2" id="BPMNShape_usertask2">
+      <bpmndi:BPMNShape bpmnElement="U41002" id="BPMNShape_U41002">
         <omgdc:Bounds height="81.0" width="111.0" x="221.0" y="338.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask3" id="BPMNShape_usertask3">
+      <bpmndi:BPMNShape bpmnElement="U41005" id="BPMNShape_U41005">
         <omgdc:Bounds height="81.0" width="111.0" x="712.0" y="221.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="parallelgateway1" id="BPMNShape_parallelgateway1">
         <omgdc:Bounds height="40.0" width="40.0" x="642.0" y="358.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask5" id="BPMNShape_usertask5">
+      <bpmndi:BPMNShape bpmnElement="U41008" id="BPMNShape_U41008">
         <omgdc:Bounds height="81.0" width="111.0" x="942.0" y="221.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask6" id="BPMNShape_usertask6">
+      <bpmndi:BPMNShape bpmnElement="U41006" id="BPMNShape_U41006">
         <omgdc:Bounds height="81.0" width="111.0" x="712.0" y="451.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask7" id="BPMNShape_usertask7">
+      <bpmndi:BPMNShape bpmnElement="U41007" id="BPMNShape_U41007">
         <omgdc:Bounds height="81.0" width="111.0" x="942.0" y="108.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask8" id="BPMNShape_usertask8">
+      <bpmndi:BPMNShape bpmnElement="U41009" id="BPMNShape_U41009">
         <omgdc:Bounds height="81.0" width="111.0" x="942.0" y="338.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask9" id="BPMNShape_usertask9">
+      <bpmndi:BPMNShape bpmnElement="U41010" id="BPMNShape_U41010">
         <omgdc:Bounds height="81.0" width="111.0" x="942.0" y="451.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask10" id="BPMNShape_usertask10">
+      <bpmndi:BPMNShape bpmnElement="U41012" id="BPMNShape_U41012">
         <omgdc:Bounds height="81.0" width="111.0" x="1331.0" y="338.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask11" id="BPMNShape_usertask11">
+      <bpmndi:BPMNShape bpmnElement="U41013" id="BPMNShape_U41013">
         <omgdc:Bounds height="81.0" width="111.0" x="1481.0" y="338.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="parallelgateway2" id="BPMNShape_parallelgateway2">
         <omgdc:Bounds height="40.0" width="40.0" x="864.0" y="241.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask12" id="BPMNShape_usertask12">
+      <bpmndi:BPMNShape bpmnElement="U41004" id="BPMNShape_U41004">
         <omgdc:Bounds height="81.0" width="111.0" x="511.0" y="338.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="parallelgateway5" id="BPMNShape_parallelgateway5">
         <omgdc:Bounds height="40.0" width="40.0" x="1101.0" y="358.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask13" id="BPMNShape_usertask13">
+      <bpmndi:BPMNShape bpmnElement="U41011" id="BPMNShape_U41011">
         <omgdc:Bounds height="101.0" width="121.0" x="1171.0" y="328.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask14" id="BPMNShape_usertask14">
+      <bpmndi:BPMNShape bpmnElement="U41003" id="BPMNShape_U41003">
         <omgdc:Bounds height="81.0" width="111.0" x="371.0" y="338.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
@@ -206,14 +206,6 @@
       <bpmndi:BPMNEdge bpmnElement="flow23" id="BPMNEdge_flow23">
         <omgdi:waypoint x="1442.0" y="378.0"></omgdi:waypoint>
         <omgdi:waypoint x="1481.0" y="378.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="association1" id="BPMNEdge_association1">
-        <omgdi:waypoint x="652.0" y="149.0"></omgdi:waypoint>
-        <omgdi:waypoint x="767.0" y="221.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="association2" id="BPMNEdge_association2">
-        <omgdi:waypoint x="1386.0" y="338.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1480.0" y="201.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

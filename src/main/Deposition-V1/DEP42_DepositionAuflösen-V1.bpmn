@@ -3,26 +3,26 @@
   <process id="DepositionAufloesen.jahresabschluss.iks.gerichte.bs.ch-V1" name="Deposition Auflösen (Subprozess) V1.0.0" isExecutable="true">
     <endEvent id="endevent1" name="End"></endEvent>
     <startEvent id="startevent1" name="Start"></startEvent>
-    <userTask id="usertask1" name="Avisierung Auflösung erhalten"></userTask>
-    <userTask id="usertask2" name="Quittungskopie erhalten"></userTask>
-    <userTask id="usertask3" name="Depositionsobjekt aus Safe holen"></userTask>
+    <userTask id="U42001" name="U42001 Avisierung Auflösung erhalten"></userTask>
+    <userTask id="U42003" name="U42003 Quittungskopie erhalten"></userTask>
+    <userTask id="U42002" name="U42002 Depositionsobjekt aus Safe holen"></userTask>
     <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
-    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
-    <sequenceFlow id="flow2" sourceRef="usertask1" targetRef="parallelgateway1"></sequenceFlow>
-    <sequenceFlow id="flow3" sourceRef="parallelgateway1" targetRef="usertask3"></sequenceFlow>
-    <sequenceFlow id="flow4" sourceRef="parallelgateway1" targetRef="usertask2"></sequenceFlow>
-    <userTask id="usertask4" name="Originalquittung visieren"></userTask>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U42001"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="U42001" targetRef="parallelgateway1"></sequenceFlow>
+    <sequenceFlow id="flow3" sourceRef="parallelgateway1" targetRef="U42002"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="parallelgateway1" targetRef="U42003"></sequenceFlow>
+    <userTask id="U42004" name="U42004 Originalquittung visieren"></userTask>
     <parallelGateway id="parallelgateway2" name="Parallel Gateway"></parallelGateway>
-    <sequenceFlow id="flow5" sourceRef="usertask2" targetRef="parallelgateway2"></sequenceFlow>
-    <sequenceFlow id="flow6" sourceRef="usertask3" targetRef="usertask4"></sequenceFlow>
-    <sequenceFlow id="flow7" sourceRef="usertask4" targetRef="parallelgateway2"></sequenceFlow>
-    <userTask id="usertask5" name="Herausgabe Depositionsobjekt"></userTask>
-    <sequenceFlow id="flow8" sourceRef="parallelgateway2" targetRef="usertask5"></sequenceFlow>
-    <userTask id="usertask6" name="Excel Liste aktualisieren"></userTask>
-    <userTask id="usertask7" name="Ausdruck in Depositionsordner ablegen"></userTask>
-    <sequenceFlow id="flow9" sourceRef="usertask5" targetRef="usertask6"></sequenceFlow>
-    <sequenceFlow id="flow10" sourceRef="usertask6" targetRef="usertask7"></sequenceFlow>
-    <sequenceFlow id="flow11" sourceRef="usertask7" targetRef="endevent1"></sequenceFlow>
+    <sequenceFlow id="flow5" sourceRef="U42003" targetRef="parallelgateway2"></sequenceFlow>
+    <sequenceFlow id="flow6" sourceRef="U42002" targetRef="U42004"></sequenceFlow>
+    <sequenceFlow id="flow7" sourceRef="U42004" targetRef="parallelgateway2"></sequenceFlow>
+    <userTask id="U42005" name="U42005 Herausgabe Depositionsobjekt"></userTask>
+    <sequenceFlow id="flow8" sourceRef="parallelgateway2" targetRef="U42005"></sequenceFlow>
+    <userTask id="U42006" name="U42006 Excel Liste aktualisieren"></userTask>
+    <userTask id="U42007" name="U42007 Ausdruck in Depositionsordner ablegen"></userTask>
+    <sequenceFlow id="flow9" sourceRef="U42005" targetRef="U42006"></sequenceFlow>
+    <sequenceFlow id="flow10" sourceRef="U42006" targetRef="U42007"></sequenceFlow>
+    <sequenceFlow id="flow11" sourceRef="U42007" targetRef="endevent1"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_DepositionAufloesen.jahresabschluss.iks.gerichte.bs.ch-V1">
     <bpmndi:BPMNPlane bpmnElement="DepositionAufloesen.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_DepositionAufloesen.jahresabschluss.iks.gerichte.bs.ch-V1">
@@ -32,31 +32,31 @@
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="140.0" y="130.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+      <bpmndi:BPMNShape bpmnElement="U42001" id="BPMNShape_U42001">
         <omgdc:Bounds height="71.0" width="105.0" x="220.0" y="112.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask2" id="BPMNShape_usertask2">
+      <bpmndi:BPMNShape bpmnElement="U42003" id="BPMNShape_U42003">
         <omgdc:Bounds height="71.0" width="105.0" x="420.0" y="112.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask3" id="BPMNShape_usertask3">
+      <bpmndi:BPMNShape bpmnElement="U42002" id="BPMNShape_U42002">
         <omgdc:Bounds height="71.0" width="105.0" x="420.0" y="14.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="parallelgateway1" id="BPMNShape_parallelgateway1">
         <omgdc:Bounds height="40.0" width="40.0" x="360.0" y="127.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask4" id="BPMNShape_usertask4">
+      <bpmndi:BPMNShape bpmnElement="U42004" id="BPMNShape_U42004">
         <omgdc:Bounds height="71.0" width="105.0" x="560.0" y="14.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="parallelgateway2" id="BPMNShape_parallelgateway2">
         <omgdc:Bounds height="40.0" width="40.0" x="670.0" y="127.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask5" id="BPMNShape_usertask5">
+      <bpmndi:BPMNShape bpmnElement="U42005" id="BPMNShape_U42005">
         <omgdc:Bounds height="71.0" width="105.0" x="736.0" y="112.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask6" id="BPMNShape_usertask6">
+      <bpmndi:BPMNShape bpmnElement="U42006" id="BPMNShape_U42006">
         <omgdc:Bounds height="71.0" width="105.0" x="876.0" y="112.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask7" id="BPMNShape_usertask7">
+      <bpmndi:BPMNShape bpmnElement="U42007" id="BPMNShape_U42007">
         <omgdc:Bounds height="71.0" width="105.0" x="1016.0" y="112.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
