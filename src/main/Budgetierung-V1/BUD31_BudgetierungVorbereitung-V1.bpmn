@@ -3,17 +3,17 @@
   <process id="BudgetierungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Budgetierung Vorbereitung (Subprozess) V1.0.0" isExecutable="true">
     <endEvent id="endevent1" name="End"></endEvent>
     <startEvent id="startevent1" name="Start"></startEvent>
-    <userTask id="U31001" name="U31001 Budget Vorjahr prüfen"></userTask>
-    <userTask id="U31002" name="U31002 Budgetanträge stellen"></userTask>
-    <userTask id="U31003" name="U31003 Budgetanträge konsolidieren (VCG)"></userTask>
+    <userTask id="U31003" name="U31003 Budgetanträge stellen"></userTask>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U31001"></sequenceFlow>
-    <sequenceFlow id="flow2" sourceRef="U31001" targetRef="U31002"></sequenceFlow>
-    <sequenceFlow id="flow3" sourceRef="U31002" targetRef="U31003"></sequenceFlow>
-    <sequenceFlow id="flow4" sourceRef="U31003" targetRef="usertask2"></sequenceFlow>
-    <userTask id="usertask2" name="U31004 Präsentation Gerichtsrat"></userTask>
-    <sequenceFlow id="flow5" sourceRef="usertask2" targetRef="endevent1"></sequenceFlow>
+    <userTask id="U31005" name="U31005 Präsentation Gerichtsrat"></userTask>
+    <sequenceFlow id="flow5" sourceRef="U31005" targetRef="endevent1"></sequenceFlow>
     <userTask id="U31001" name="U31001 Fristen nach Terminplan FV definieren"></userTask>
-    <sequenceFlow id="flow6" sourceRef="U31001" targetRef="U31001"></sequenceFlow>
+    <userTask id="usertask3" name="U31002 Budget Vorjahr prüfen"></userTask>
+    <sequenceFlow id="flow6" sourceRef="U31001" targetRef="usertask3"></sequenceFlow>
+    <sequenceFlow id="flow7" sourceRef="usertask3" targetRef="U31003"></sequenceFlow>
+    <userTask id="U31004" name="U31004 Budgetanträge konsolidieren (VCG)"></userTask>
+    <sequenceFlow id="flow8" sourceRef="U31003" targetRef="U31004"></sequenceFlow>
+    <sequenceFlow id="flow9" sourceRef="U31004" targetRef="U31005"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_BudgetierungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
     <bpmndi:BPMNPlane bpmnElement="BudgetierungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_BudgetierungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
@@ -23,41 +23,44 @@
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="164.0" y="50.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U31001" id="BPMNShape_U31001">
-        <omgdc:Bounds height="81.0" width="106.0" x="240.0" y="27.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U31002" id="BPMNShape_U31002">
+      <bpmndi:BPMNShape bpmnElement="U31003" id="BPMNShape_U31003">
         <omgdc:Bounds height="81.0" width="105.0" x="520.0" y="27.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U31003" id="BPMNShape_U31003">
-        <omgdc:Bounds height="81.0" width="105.0" x="670.0" y="27.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="usertask2" id="BPMNShape_usertask2">
+      <bpmndi:BPMNShape bpmnElement="U31005" id="BPMNShape_U31005">
         <omgdc:Bounds height="81.0" width="105.0" x="810.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U31001" id="BPMNShape_U31001">
+        <omgdc:Bounds height="81.0" width="106.0" x="230.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask3" id="BPMNShape_usertask3">
+        <omgdc:Bounds height="76.0" width="105.0" x="371.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U31004" id="BPMNShape_U31004">
+        <omgdc:Bounds height="81.0" width="105.0" x="660.0" y="27.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
         <omgdi:waypoint x="199.0" y="67.0"></omgdi:waypoint>
-        <omgdi:waypoint x="380.0" y="67.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
-        <omgdi:waypoint x="485.0" y="67.0"></omgdi:waypoint>
-        <omgdi:waypoint x="520.0" y="67.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
-        <omgdi:waypoint x="625.0" y="67.0"></omgdi:waypoint>
-        <omgdi:waypoint x="670.0" y="67.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
-        <omgdi:waypoint x="775.0" y="67.0"></omgdi:waypoint>
-        <omgdi:waypoint x="810.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="230.0" y="67.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
         <omgdi:waypoint x="915.0" y="67.0"></omgdi:waypoint>
         <omgdi:waypoint x="970.0" y="67.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
-        <omgdi:waypoint x="485.0" y="67.0"></omgdi:waypoint>
-        <omgdi:waypoint x="485.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="336.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="371.0" y="68.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="476.0" y="68.0"></omgdi:waypoint>
+        <omgdi:waypoint x="520.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
+        <omgdi:waypoint x="625.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="660.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow9" id="BPMNEdge_flow9">
+        <omgdi:waypoint x="765.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="810.0" y="67.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

@@ -19,8 +19,7 @@
       <timerEventDefinition></timerEventDefinition>
     </startEvent>
     <textAnnotation id="textannotation1">
-      <text>Termine?
-Frequenz?</text>
+      <text>jährlich</text>
     </textAnnotation>
     <association id="association1" sourceRef="textannotation1" targetRef="timerstartevent1"></association>
   </process>

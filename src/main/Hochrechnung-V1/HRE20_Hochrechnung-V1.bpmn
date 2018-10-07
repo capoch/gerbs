@@ -17,6 +17,14 @@
     </textAnnotation>
     <association id="association1" sourceRef="textannotation1" targetRef="startevent1"></association>
     <association id="association2" sourceRef="textannotation1" targetRef="timerstartevent1"></association>
+    <textAnnotation id="textannotation2">
+      <text>Akteure:
+- FV
+- ZR
+- DS Gerichte
+- VCs
+- VCG</text>
+    </textAnnotation>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_Hochrechnung.iks.gerichte.bs.ch-V1">
     <bpmndi:BPMNPlane bpmnElement="Hochrechnung.iks.gerichte.bs.ch-V1" id="BPMNPlane_Hochrechnung.iks.gerichte.bs.ch-V1">
@@ -37,6 +45,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
         <omgdc:Bounds height="50.0" width="211.0" x="62.0" y="110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="textannotation2" id="BPMNShape_textannotation2">
+        <omgdc:Bounds height="89.0" width="100.0" x="62.0" y="272.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
         <omgdi:waypoint x="421.0" y="227.0"></omgdi:waypoint>
