@@ -5,7 +5,6 @@
     <endEvent id="endevent1" name="End"></endEvent>
     <userTask id="U23001" name="U23001 Finalen Recap Report erstellen"></userTask>
     <userTask id="U23002" name="U23002 Begründungen von VCs einfordern"></userTask>
-    <userTask id="U23004" name="U23004 Reminder senden"></userTask>
     <userTask id="U23005" name="U23005 Zusammenstellung Deckblatt &amp; Begründungen"></userTask>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U23001"></sequenceFlow>
     <sequenceFlow id="flow2" sourceRef="U23001" targetRef="U23002"></sequenceFlow>
@@ -15,12 +14,13 @@
     <boundaryEvent id="boundarytimer3" name="Timer" attachedToRef="U23003" cancelActivity="false">
       <timerEventDefinition></timerEventDefinition>
     </boundaryEvent>
-    <sequenceFlow id="flow18" sourceRef="boundarytimer3" targetRef="U23004"></sequenceFlow>
+    <sequenceFlow id="flow18" sourceRef="boundarytimer3" targetRef="M23004"></sequenceFlow>
     <sequenceFlow id="flow19" sourceRef="M23007" targetRef="endevent1"></sequenceFlow>
     <userTask id="usertask1" name="U23006 Deckblatt unterschreiben"></userTask>
     <sequenceFlow id="flow20" sourceRef="U23003" targetRef="U23005"></sequenceFlow>
     <sequenceFlow id="flow21" sourceRef="U23005" targetRef="usertask1"></sequenceFlow>
     <sequenceFlow id="flow22" sourceRef="usertask1" targetRef="M23007"></sequenceFlow>
+    <serviceTask id="M23004" name="M23004 Reminder senden" activiti:type="mail"></serviceTask>
     <textAnnotation id="textannotation3">
       <text>Deadine Stichtag</text>
     </textAnnotation>
@@ -54,9 +54,6 @@ Deckblatt &amp; Begründungsdokumente</text>
       <bpmndi:BPMNShape bpmnElement="U23002" id="BPMNShape_U23002">
         <omgdc:Bounds height="83.0" width="105.0" x="290.0" y="56.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U23004" id="BPMNShape_U23004">
-        <omgdc:Bounds height="83.0" width="105.0" x="432.0" y="203.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="U23005" id="BPMNShape_U23005">
         <omgdc:Bounds height="83.0" width="105.0" x="590.0" y="56.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
@@ -71,6 +68,9 @@ Deckblatt &amp; Begründungsdokumente</text>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
         <omgdc:Bounds height="85.0" width="105.0" x="740.0" y="55.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="M23004" id="BPMNShape_M23004">
+        <omgdc:Bounds height="81.0" width="105.0" x="433.0" y="210.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation3" id="BPMNShape_textannotation3">
         <omgdc:Bounds height="50.0" width="121.0" x="860.0" y="220.0"></omgdc:Bounds>
@@ -98,7 +98,7 @@ Deckblatt &amp; Begründungsdokumente</text>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow18" id="BPMNEdge_flow18">
         <omgdi:waypoint x="485.0" y="147.0"></omgdi:waypoint>
-        <omgdi:waypoint x="484.0" y="203.0"></omgdi:waypoint>
+        <omgdi:waypoint x="485.0" y="210.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow19" id="BPMNEdge_flow19">
         <omgdi:waypoint x="1013.0" y="97.0"></omgdi:waypoint>
