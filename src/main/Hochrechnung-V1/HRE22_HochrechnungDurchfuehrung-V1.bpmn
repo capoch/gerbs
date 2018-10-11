@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
-  <process id="HochrechnungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Hochrechnung Durchführung (Subprozess) V1.0.0" isExecutable="true">
+  <process id="HochrechnungDurchfuehrung.hochrechnung.iks.gerichte.bs.ch-V1" name="Hochrechnung Durchführung (Subprozess) V1.0.0" isExecutable="true">
     <documentation>Nächste Task ID: x12029</documentation>
     <startEvent id="startevent1" name="Start"></startEvent>
     <sequenceFlow id="flow14" sourceRef="startevent1" targetRef="U22001"></sequenceFlow>
@@ -18,26 +18,26 @@
     <sequenceFlow id="flow19" sourceRef="U22003" targetRef="exclusivegateway2"></sequenceFlow>
     <sequenceFlow id="flow20" sourceRef="exclusivegateway2" targetRef="U22004"></sequenceFlow>
     <userTask id="U22006" name="U22006 Info an Personalabteilung versenden"></userTask>
-    <userTask id="U22007" name="U22007 Personaldaten einspielen"></userTask>
+    <userTask id="U22008" name="U22008 Personaldaten einspielen"></userTask>
     <scriptTask id="S22005" name="S22005 Hochrechnungslauf in SAP durchführen" activiti:autoStoreVariables="false"></scriptTask>
-    <userTask id="U22008" name="U22008 Hochrechnung Personalabteilung durchführen"></userTask>
+    <userTask id="U22007" name="U22007 Hochrechnung Personalabteilung durchführen"></userTask>
     <sequenceFlow id="flow21" sourceRef="U22004" targetRef="parallelgateway1"></sequenceFlow>
     <sequenceFlow id="flow22" sourceRef="parallelgateway1" targetRef="U22006"></sequenceFlow>
     <sequenceFlow id="flow23" sourceRef="parallelgateway1" targetRef="S22005"></sequenceFlow>
-    <sequenceFlow id="flow24" sourceRef="U22007" targetRef="endevent2"></sequenceFlow>
-    <sequenceFlow id="flow25" sourceRef="U22006" targetRef="U22008"></sequenceFlow>
+    <sequenceFlow id="flow24" sourceRef="U22008" targetRef="endevent2"></sequenceFlow>
+    <sequenceFlow id="flow25" sourceRef="U22006" targetRef="U22007"></sequenceFlow>
     <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
     <parallelGateway id="parallelgateway2" name="Parallel Gateway"></parallelGateway>
     <sequenceFlow id="flow26" sourceRef="S22005" targetRef="parallelgateway2"></sequenceFlow>
-    <sequenceFlow id="flow27" sourceRef="U22008" targetRef="parallelgateway2"></sequenceFlow>
-    <sequenceFlow id="flow28" sourceRef="parallelgateway2" targetRef="U22007"></sequenceFlow>
+    <sequenceFlow id="flow27" sourceRef="U22007" targetRef="parallelgateway2"></sequenceFlow>
+    <sequenceFlow id="flow28" sourceRef="parallelgateway2" targetRef="U22008"></sequenceFlow>
     <textAnnotation id="textannotation1">
       <text>Kontrolle auf Niveau Hauptkonti - bei grösseren Abweichungen, Detailanalyse Unterkonti</text>
     </textAnnotation>
     <association id="association1" sourceRef="textannotation1" targetRef="U22002"></association>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_HochrechnungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1">
-    <bpmndi:BPMNPlane bpmnElement="HochrechnungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_HochrechnungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_HochrechnungDurchfuehrung.hochrechnung.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="HochrechnungDurchfuehrung.hochrechnung.iks.gerichte.bs.ch-V1" id="BPMNPlane_HochrechnungDurchfuehrung.hochrechnung.iks.gerichte.bs.ch-V1">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="240.0" y="50.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
@@ -65,13 +65,13 @@
       <bpmndi:BPMNShape bpmnElement="U22006" id="BPMNShape_U22006">
         <omgdc:Bounds height="81.0" width="105.0" x="1082.0" y="142.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U22007" id="BPMNShape_U22007">
+      <bpmndi:BPMNShape bpmnElement="U22008" id="BPMNShape_U22008">
         <omgdc:Bounds height="81.0" width="105.0" x="1470.0" y="26.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="S22005" id="BPMNShape_S22005">
         <omgdc:Bounds height="78.0" width="105.0" x="1082.0" y="29.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U22008" id="BPMNShape_U22008">
+      <bpmndi:BPMNShape bpmnElement="U22007" id="BPMNShape_U22007">
         <omgdc:Bounds height="81.0" width="105.0" x="1240.0" y="142.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="parallelgateway1" id="BPMNShape_parallelgateway1">
@@ -104,7 +104,7 @@
         <omgdi:waypoint x="620.0" y="170.0"></omgdi:waypoint>
         <omgdi:waypoint x="660.0" y="170.0"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="13.0" width="100.0" x="561.0" y="129.0"></omgdc:Bounds>
+          <omgdc:Bounds height="13.0" width="51.0" x="561.0" y="129.0"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow19" id="BPMNEdge_flow19">

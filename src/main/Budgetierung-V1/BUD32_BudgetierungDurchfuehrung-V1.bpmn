@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
-  <process id="BudgetierungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Budgetierung Durchführung (Subprozess) V1.0.0" isExecutable="true">
+  <process id="BudgetierungDurchfuehrung.budgetierung.iks.gerichte.bs.ch-V1" name="Budgetierung Durchführung (Subprozess) V1.0.0" isExecutable="true">
     <documentation>Nächste Task ID: x12029</documentation>
     <startEvent id="startevent1" name="Start"></startEvent>
     <userTask id="U32001 " name="U32001 Informelle Revision mit FD und Kanton"></userTask>
@@ -16,8 +16,8 @@
     <sequenceFlow id="flow5" sourceRef="U32004" targetRef="U32005"></sequenceFlow>
     <sequenceFlow id="flow6" sourceRef="U32005" targetRef="endevent3"></sequenceFlow>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_BudgetierungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1">
-    <bpmndi:BPMNPlane bpmnElement="BudgetierungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_BudgetierungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_BudgetierungDurchfuehrung.budgetierung.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="BudgetierungDurchfuehrung.budgetierung.iks.gerichte.bs.ch-V1" id="BPMNPlane_BudgetierungDurchfuehrung.budgetierung.iks.gerichte.bs.ch-V1">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="240.0" y="63.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>

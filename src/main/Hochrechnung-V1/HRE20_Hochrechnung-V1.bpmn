@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
   <process id="Hochrechnung.iks.gerichte.bs.ch-V1" name="Hochrechnung V1.0.0" isExecutable="true">
-    <callActivity id="C20001" name="C20001 Hochrechnung Vorbereiten (PREPARE / PLAN)" calledElement="HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1"></callActivity>
-    <callActivity id="C20002" name="C20002 Hochrechnung  Durchführung (DO)" calledElement="HochrechnungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1"></callActivity>
+    <callActivity id="C20001" name="C20001 Hochrechnung Vorbereiten (PREPARE / PLAN)" calledElement="HochrechnungVorbereitung.hochrechnung.iks.gerichte.bs.ch-V1"></callActivity>
+    <callActivity id="C20002" name="C20002 Hochrechnung  Durchführung (DO)" calledElement="HochrechnungDurchfuehrung.hochrechnung.iks.gerichte.bs.ch-V1"></callActivity>
     <sequenceFlow id="flow2" sourceRef="C20001" targetRef="C20002"></sequenceFlow>
-    <callActivity id="C20003" name="C20003 Hochrechnung Überprüfungen (CHECK)" calledElement="HochrechnungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1"></callActivity>
+    <callActivity id="C20003" name="C20003 Hochrechnung Überprüfungen (CHECK)" calledElement="HochrechnungPruefung.hochrechnung.iks.gerichte.bs.ch-V1"></callActivity>
     <sequenceFlow id="flow3" sourceRef="C20002" targetRef="C20003"></sequenceFlow>
     <endEvent id="endE999" name="E999 Ende"></endEvent>
     <startEvent id="timerstartevent1" name="Timer start">

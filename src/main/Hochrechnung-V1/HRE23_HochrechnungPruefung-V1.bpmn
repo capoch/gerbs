@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
-  <process id="HochrechnungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Hochrechnung Prüfung (Subprozess) V1.0.0" isExecutable="true">
+  <process id="HochrechnungPruefung.hochrechnung.iks.gerichte.bs.ch-V1" name="Hochrechnung Prüfung (Subprozess) V1.0.0" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
     <endEvent id="endevent1" name="End"></endEvent>
     <userTask id="U23001" name="U23001 Finalen Recap Report erstellen"></userTask>
@@ -40,8 +40,8 @@ Deckblatt &amp; Begründungsdokumente</text>
     </textAnnotation>
     <association id="association8" sourceRef="textannotation6" targetRef="usertask1"></association>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_HochrechnungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1">
-    <bpmndi:BPMNPlane bpmnElement="HochrechnungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_HochrechnungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_HochrechnungPruefung.hochrechnung.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="HochrechnungPruefung.hochrechnung.iks.gerichte.bs.ch-V1" id="BPMNPlane_HochrechnungPruefung.hochrechnung.iks.gerichte.bs.ch-V1">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="70.0" y="80.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>

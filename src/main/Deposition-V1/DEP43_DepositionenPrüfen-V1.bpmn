@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
-  <process id="DepositionenPruefen.jahresabschluss.iks.gerichte.bs.ch-V1" name="Deposition Prüfen (Subprozess) V1.0.0" isExecutable="true">
+  <process id="DepositionenPruefen.depositionen.gerichte.bs.ch-V1" name="Deposition Prüfen (Subprozess) V1.0.0" isExecutable="true">
     <endEvent id="endevent1" name="End"></endEvent>
     <startEvent id="startevent1" name="Start"></startEvent>
     <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
@@ -30,32 +30,24 @@
     <sequenceFlow id="flow15" sourceRef="startevent1" targetRef="parallelgateway1"></sequenceFlow>
     <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
     <sequenceFlow id="flow16" sourceRef="U43007" targetRef="exclusivegateway1"></sequenceFlow>
-    <userTask id="U43008" name="U43008 NOK-Fall feststellen"></userTask>
-    <sequenceFlow id="flow17" name="notwendig" sourceRef="exclusivegateway1" targetRef="U43008"></sequenceFlow>
-    <exclusiveGateway id="exclusivegateway2" name="Exclusive Gateway"></exclusiveGateway>
-    <userTask id="U43009" name="U43009 Mit Depositor Abholung prüfen"></userTask>
-    <userTask id="U43010" name="U43010 Anhand Quittung Depositionsordner korrigieren"></userTask>
-    <userTask id="U43011" name="U43011 Excel Liste korrigieren"></userTask>
-    <sequenceFlow id="flow18" sourceRef="U43008" targetRef="exclusivegateway2"></sequenceFlow>
-    <sequenceFlow id="flow19" name="NOK(A)" sourceRef="exclusivegateway2" targetRef="U43009"></sequenceFlow>
-    <sequenceFlow id="flow20" name="NOK(B)" sourceRef="exclusivegateway2" targetRef="U43010"></sequenceFlow>
-    <sequenceFlow id="flow21" sourceRef="U43010" targetRef="U43011"></sequenceFlow>
+    <sequenceFlow id="flow17" name="notwendig" sourceRef="exclusivegateway1" targetRef="C43100"></sequenceFlow>
     <exclusiveGateway id="exclusivegateway3" name="Exclusive Gateway"></exclusiveGateway>
-    <sequenceFlow id="flow22" sourceRef="U43009" targetRef="exclusivegateway3"></sequenceFlow>
-    <sequenceFlow id="flow23" sourceRef="U43011" targetRef="exclusivegateway3"></sequenceFlow>
     <sequenceFlow id="flow24" sourceRef="exclusivegateway1" targetRef="exclusivegateway3"></sequenceFlow>
-    <sequenceFlow id="flow25" sourceRef="exclusivegateway3" targetRef="endevent1"></sequenceFlow>
+    <sequenceFlow id="flow25" sourceRef="C43100" targetRef="exclusivegateway3"></sequenceFlow>
+    <callActivity id="C43100" name="C43100 NOK Handling" calledElement="NOKHandling.depositionenpruefen.depositionen.iks.gerichte.bs.ch-V1"></callActivity>
+    <sequenceFlow id="flow26" sourceRef="exclusivegateway3" targetRef="endevent1"></sequenceFlow>
     <textAnnotation id="textannotation1">
       <text>-OK 
 - NOK(A) fehlt in Tresor
 - NOK(B) fehlt in Liste</text>
     </textAnnotation>
     <association id="association1" sourceRef="textannotation1" targetRef="usertask4"></association>
+    <association id="association2" sourceRef="U43004" targetRef="textannotation1"></association>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_DepositionenPruefen.jahresabschluss.iks.gerichte.bs.ch-V1">
-    <bpmndi:BPMNPlane bpmnElement="DepositionenPruefen.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_DepositionenPruefen.jahresabschluss.iks.gerichte.bs.ch-V1">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_DepositionenPruefen.depositionen.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="DepositionenPruefen.depositionen.gerichte.bs.ch-V1" id="BPMNPlane_DepositionenPruefen.depositionen.gerichte.bs.ch-V1">
       <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
-        <omgdc:Bounds height="35.0" width="35.0" x="1900.0" y="158.0"></omgdc:Bounds>
+        <omgdc:Bounds height="35.0" width="35.0" x="1420.0" y="158.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="100.0" y="158.0"></omgdc:Bounds>
@@ -96,23 +88,11 @@
       <bpmndi:BPMNShape bpmnElement="exclusivegateway1" id="BPMNShape_exclusivegateway1">
         <omgdc:Bounds height="40.0" width="40.0" x="1080.0" y="155.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U43008" id="BPMNShape_U43008">
-        <omgdc:Bounds height="64.0" width="105.0" x="1215.0" y="144.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="exclusivegateway2" id="BPMNShape_exclusivegateway2">
-        <omgdc:Bounds height="40.0" width="40.0" x="1365.0" y="155.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U43009" id="BPMNShape_U43009">
-        <omgdc:Bounds height="73.0" width="105.0" x="1465.0" y="139.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U43010" id="BPMNShape_U43010">
-        <omgdc:Bounds height="75.0" width="105.0" x="1465.0" y="238.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U43011" id="BPMNShape_U43011">
-        <omgdc:Bounds height="73.0" width="105.0" x="1610.0" y="239.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="exclusivegateway3" id="BPMNShape_exclusivegateway3">
-        <omgdc:Bounds height="40.0" width="40.0" x="1730.0" y="155.0"></omgdc:Bounds>
+        <omgdc:Bounds height="40.0" width="40.0" x="1320.0" y="155.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="C43100" id="BPMNShape_C43100">
+        <omgdc:Bounds height="109.0" width="130.0" x="1171.0" y="121.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
         <omgdc:Bounds height="71.0" width="127.0" x="500.0" y="280.0"></omgdc:Bounds>
@@ -188,52 +168,28 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow17" id="BPMNEdge_flow17">
         <omgdi:waypoint x="1120.0" y="175.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1215.0" y="176.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1171.0" y="175.0"></omgdi:waypoint>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="13.0" width="100.0" x="1120.0" y="175.0"></omgdc:Bounds>
+          <omgdc:Bounds height="13.0" width="51.0" x="1109.0" y="190.0"></omgdc:Bounds>
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow18" id="BPMNEdge_flow18">
-        <omgdi:waypoint x="1320.0" y="176.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1365.0" y="175.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow19" id="BPMNEdge_flow19">
-        <omgdi:waypoint x="1405.0" y="175.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1465.0" y="175.0"></omgdi:waypoint>
-        <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="13.0" width="100.0" x="1404.0" y="155.0"></omgdc:Bounds>
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow20" id="BPMNEdge_flow20">
-        <omgdi:waypoint x="1385.0" y="195.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1385.0" y="275.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1465.0" y="275.0"></omgdi:waypoint>
-        <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="13.0" width="100.0" x="1405.0" y="249.0"></omgdc:Bounds>
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow21" id="BPMNEdge_flow21">
-        <omgdi:waypoint x="1570.0" y="275.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1610.0" y="275.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow22" id="BPMNEdge_flow22">
-        <omgdi:waypoint x="1570.0" y="175.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1730.0" y="175.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow23" id="BPMNEdge_flow23">
-        <omgdi:waypoint x="1715.0" y="275.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1750.0" y="274.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1750.0" y="195.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow24" id="BPMNEdge_flow24">
         <omgdi:waypoint x="1100.0" y="155.0"></omgdi:waypoint>
         <omgdi:waypoint x="1100.0" y="95.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1750.0" y="92.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1750.0" y="155.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1339.0" y="95.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1340.0" y="155.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow25" id="BPMNEdge_flow25">
-        <omgdi:waypoint x="1770.0" y="175.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1900.0" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1301.0" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1320.0" y="175.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow26" id="BPMNEdge_flow26">
+        <omgdi:waypoint x="1360.0" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1420.0" y="175.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="association2" id="BPMNEdge_association2">
+        <omgdi:waypoint x="572.0" y="212.0"></omgdi:waypoint>
+        <omgdi:waypoint x="563.0" y="280.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

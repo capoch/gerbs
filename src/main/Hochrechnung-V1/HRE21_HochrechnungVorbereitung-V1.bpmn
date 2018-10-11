@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
-  <process id="HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Hochrechnung Vorbereitung (Subprozess) V1.0.0" isExecutable="true">
+  <process id="HochrechnungVorbereitung.hochrechnung.iks.gerichte.bs.ch-V1" name="Hochrechnung Vorbereitung (Subprozess) V1.0.0" isExecutable="true">
     <userTask id="U21004" name="U21004 Vollständigkeit Rechnungen prüfen"></userTask>
     <userTask id="U21005" name="U21005 Kontokorrent-Konten abstimmen"></userTask>
     <startEvent id="messagestartevent1" name="Message start">
@@ -29,8 +29,8 @@
     </textAnnotation>
     <association id="association2" sourceRef="textannotation2" targetRef="U21002"></association>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
-    <bpmndi:BPMNPlane bpmnElement="HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_HochrechnungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_HochrechnungVorbereitung.hochrechnung.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="HochrechnungVorbereitung.hochrechnung.iks.gerichte.bs.ch-V1" id="BPMNPlane_HochrechnungVorbereitung.hochrechnung.iks.gerichte.bs.ch-V1">
       <bpmndi:BPMNShape bpmnElement="U21004" id="BPMNShape_U21004">
         <omgdc:Bounds height="85.0" width="105.0" x="550.0" y="175.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
   <process id="Budgetierung.iks.gerichte.bs.ch-V1" name="Budgetierung V1.0.0" isExecutable="true">
-    <callActivity id="C30001" name="C30001 Budgetierung Vorbereiten (PREPARE / PLAN)" calledElement="BudgetierungVorbereitung.jahresabschluss.iks.gerichte.bs.ch-V1"></callActivity>
+    <callActivity id="C30001" name="C30001 Budgetierung Vorbereiten (PREPARE / PLAN)" calledElement="BudgetierungVorbereitung.budgetierung.iks.gerichte.bs.ch-V1"></callActivity>
     <sequenceFlow id="flow1" sourceRef="timerstartevent1" targetRef="C30001"></sequenceFlow>
-    <callActivity id="C30002" name="C30002 Budgetierung  Durchführung (DO)" calledElement="BudgetierungDurchfuehrung.jahresabschluss.iks.gerichte.bs.ch-V1"></callActivity>
+    <callActivity id="C30002" name="C30002 Budgetierung  Durchführung (DO)" calledElement="BudgetierungDurchfuehrung.budgetierung.iks.gerichte.bs.ch-V1"></callActivity>
     <sequenceFlow id="flow2" sourceRef="C30001" targetRef="C30002"></sequenceFlow>
-    <callActivity id="C30003" name="C30003 Budgetierung Überprüfungen (CHECK)" calledElement="BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1"></callActivity>
+    <callActivity id="C30003" name="C30003 Budgetierung Überprüfungen (CHECK)" calledElement="BudgetierungPruefung.budgetierung.iks.gerichte.bs.ch-V1"></callActivity>
     <sequenceFlow id="flow3" sourceRef="C30002" targetRef="C30003"></sequenceFlow>
     <sequenceFlow id="flow4" sourceRef="C30003" targetRef="endE999"></sequenceFlow>
     <endEvent id="endE999" name="E999 Ende"></endEvent>

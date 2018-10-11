@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
-  <process id="DepositionEinlagern.jahresabschluss.iks.gerichte.bs.ch-V1" name="Deposition Einlagern (Subprozess) V1.0.0" isExecutable="true">
+  <process id="DepositionEinlagern.depositionen.iks.gerichte.bs.ch-V1" name="Deposition Einlagern (Subprozess) V1.0.0" isExecutable="true">
     <endEvent id="endevent1" name="End"></endEvent>
     <startEvent id="startevent1" name="Start"></startEvent>
     <userTask id="U41001" name="U41001 Avisierung neue Deposition erhalten"></userTask>
@@ -60,8 +60,8 @@
     <association id="association3" sourceRef="textannotation1" targetRef="U41005"></association>
     <association id="association4" sourceRef="textannotation2" targetRef="U41013"></association>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_DepositionEinlagern.jahresabschluss.iks.gerichte.bs.ch-V1">
-    <bpmndi:BPMNPlane bpmnElement="DepositionEinlagern.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_DepositionEinlagern.jahresabschluss.iks.gerichte.bs.ch-V1">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_DepositionEinlagern.depositionen.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="DepositionEinlagern.depositionen.iks.gerichte.bs.ch-V1" id="BPMNPlane_DepositionEinlagern.depositionen.iks.gerichte.bs.ch-V1">
       <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="1631.0" y="361.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>

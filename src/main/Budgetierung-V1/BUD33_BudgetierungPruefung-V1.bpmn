@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
-  <process id="BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1" name="Budgetierung Prüfung (Subprozess) V1.0.0" isExecutable="true">
+  <process id="BudgetierungPruefung.budgetierung.iks.gerichte.bs.ch-V1" name="Budgetierung Prüfung (Subprozess) V1.0.0" isExecutable="true">
     <userTask id="U33014" name="U33014 Finale Freigabe erteilen (Grosser Rat)"></userTask>
     <userTask id="U33003" name="U33003 1. Lesung im Grosen Rat"></userTask>
     <userTask id="U33007" name="U33007 2. Lesung im Grossen Rat"></userTask>
@@ -58,8 +58,8 @@
     </textAnnotation>
     <association id="association2" sourceRef="textannotation2" targetRef="usertask1"></association>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1">
-    <bpmndi:BPMNPlane bpmnElement="BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1" id="BPMNPlane_BudgetierungPruefung.jahresabschluss.iks.gerichte.bs.ch-V1">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_BudgetierungPruefung.budgetierung.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="BudgetierungPruefung.budgetierung.iks.gerichte.bs.ch-V1" id="BPMNPlane_BudgetierungPruefung.budgetierung.iks.gerichte.bs.ch-V1">
       <bpmndi:BPMNShape bpmnElement="U33014" id="BPMNShape_U33014">
         <omgdc:Bounds height="85.0" width="105.0" x="2156.0" y="94.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>

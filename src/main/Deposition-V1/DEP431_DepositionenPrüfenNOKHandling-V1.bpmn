@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
+  <process id="NOKHandling.depositionenpruefen.depositionen.iks.gerichte.bs.ch-V1" name="Deposition Prüfen NOK Handling (Subprozess) V1.0.0" isExecutable="true">
+    <userTask id="U43101" name="U43101 NOK-Fall feststellen"></userTask>
+    <userTask id="U43102" name="U43102 Mit Depositor Abholung prüfen"></userTask>
+    <userTask id="U43103" name="U43103 Anhand Quittung Depositionsordner korrigieren"></userTask>
+    <userTask id="U43104" name="U43104 Excel Liste korrigieren"></userTask>
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U43101"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="U43101" targetRef="exclusivegateway1"></sequenceFlow>
+    <sequenceFlow id="flow3" name="NOK(A)" sourceRef="exclusivegateway1" targetRef="U43102"></sequenceFlow>
+    <sequenceFlow id="flow4" name="NOK(B)" sourceRef="exclusivegateway1" targetRef="U43103"></sequenceFlow>
+    <sequenceFlow id="flow5" sourceRef="U43103" targetRef="U43104"></sequenceFlow>
+    <exclusiveGateway id="exclusivegateway2" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow6" sourceRef="U43102" targetRef="exclusivegateway2"></sequenceFlow>
+    <sequenceFlow id="flow7" sourceRef="U43104" targetRef="exclusivegateway2"></sequenceFlow>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <sequenceFlow id="flow8" sourceRef="exclusivegateway2" targetRef="endevent1"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_NOKHandling.depositionenpruefen.depositionen.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="NOKHandling.depositionenpruefen.depositionen.iks.gerichte.bs.ch-V1" id="BPMNPlane_NOKHandling.depositionenpruefen.depositionen.iks.gerichte.bs.ch-V1">
+      <bpmndi:BPMNShape bpmnElement="U43101" id="BPMNShape_U43101">
+        <omgdc:Bounds height="81.0" width="121.0" x="160.0" y="70.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U43102" id="BPMNShape_U43102">
+        <omgdc:Bounds height="81.0" width="121.0" x="400.0" y="70.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U43103" id="BPMNShape_U43103">
+        <omgdc:Bounds height="81.0" width="121.0" x="400.0" y="180.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U43104" id="BPMNShape_U43104">
+        <omgdc:Bounds height="81.0" width="121.0" x="560.0" y="180.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="80.0" y="93.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway1" id="BPMNShape_exclusivegateway1">
+        <omgdc:Bounds height="40.0" width="40.0" x="310.0" y="90.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway2" id="BPMNShape_exclusivegateway2">
+        <omgdc:Bounds height="40.0" width="40.0" x="700.0" y="90.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="800.0" y="93.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="115.0" y="110.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="110.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="281.0" y="110.0"></omgdi:waypoint>
+        <omgdi:waypoint x="310.0" y="110.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="350.0" y="110.0"></omgdi:waypoint>
+        <omgdi:waypoint x="400.0" y="110.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="13.0" width="39.0" x="349.0" y="93.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="330.0" y="130.0"></omgdi:waypoint>
+        <omgdi:waypoint x="330.0" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="400.0" y="220.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="13.0" width="39.0" x="350.0" y="199.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="521.0" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="560.0" y="220.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="521.0" y="110.0"></omgdi:waypoint>
+        <omgdi:waypoint x="700.0" y="110.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="681.0" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="720.0" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="720.0" y="130.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
+        <omgdi:waypoint x="740.0" y="110.0"></omgdi:waypoint>
+        <omgdi:waypoint x="800.0" y="110.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
