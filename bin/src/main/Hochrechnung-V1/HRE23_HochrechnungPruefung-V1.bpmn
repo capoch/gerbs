@@ -31,7 +31,7 @@
     <association id="association5" sourceRef="textannotation3" targetRef="mailtask1"></association>
     <association id="association6" sourceRef="M23007" targetRef="textannotation3"></association>
     <textAnnotation id="textannotation5">
-      <text>Dokument: Begründungen und Massnahmen je Dienststelle mit physischer Unterschrift VC</text>
+      <text>Dokument: Begründungen und Massnahmen je Dienststelle</text>
     </textAnnotation>
     <association id="association7" sourceRef="textannotation5" targetRef="U23002"></association>
     <textAnnotation id="textannotation6">
@@ -39,20 +39,11 @@
 Deckblatt &amp; Begründungsdokumente</text>
     </textAnnotation>
     <association id="association8" sourceRef="textannotation6" targetRef="usertask1"></association>
-    <textAnnotation id="textannotation7">
-      <text>CHECKPOINT 1</text>
-    </textAnnotation>
-    <association id="association9" sourceRef="textannotation7" targetRef="U23001"></association>
-    <textAnnotation id="textannotation8">
-      <text>CHECKPOINT 2:
-Alle Dokumente vorhanden, unterschrieben und versandt.</text>
-    </textAnnotation>
-    <association id="association10" sourceRef="M23007" targetRef="textannotation8"></association>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_HochrechnungPruefung.hochrechnung.iks.gerichte.bs.ch-V1">
     <bpmndi:BPMNPlane bpmnElement="HochrechnungPruefung.hochrechnung.iks.gerichte.bs.ch-V1" id="BPMNPlane_HochrechnungPruefung.hochrechnung.iks.gerichte.bs.ch-V1">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
-        <omgdc:Bounds height="35.0" width="35.0" x="61.0" y="80.0"></omgdc:Bounds>
+        <omgdc:Bounds height="35.0" width="35.0" x="70.0" y="80.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="1060.0" y="80.0"></omgdc:Bounds>
@@ -79,7 +70,7 @@ Alle Dokumente vorhanden, unterschrieben und versandt.</text>
         <omgdc:Bounds height="85.0" width="105.0" x="740.0" y="55.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="M23004" id="BPMNShape_M23004">
-        <omgdc:Bounds height="81.0" width="105.0" x="434.0" y="204.0"></omgdc:Bounds>
+        <omgdc:Bounds height="81.0" width="105.0" x="433.0" y="210.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation3" id="BPMNShape_textannotation3">
         <omgdc:Bounds height="50.0" width="121.0" x="860.0" y="220.0"></omgdc:Bounds>
@@ -88,19 +79,13 @@ Alle Dokumente vorhanden, unterschrieben und versandt.</text>
         <omgdc:Bounds height="50.0" width="100.0" x="520.0" y="148.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation5" id="BPMNShape_textannotation5">
-        <omgdc:Bounds height="101.0" width="100.0" x="250.0" y="190.0"></omgdc:Bounds>
+        <omgdc:Bounds height="66.0" width="100.0" x="250.0" y="190.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation6" id="BPMNShape_textannotation6">
         <omgdc:Bounds height="50.0" width="131.0" x="660.0" y="220.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="textannotation7" id="BPMNShape_textannotation7">
-        <omgdc:Bounds height="50.0" width="100.0" x="70.0" y="180.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="textannotation8" id="BPMNShape_textannotation8">
-        <omgdc:Bounds height="71.0" width="100.0" x="1014.0" y="180.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
-        <omgdi:waypoint x="96.0" y="97.0"></omgdi:waypoint>
+        <omgdi:waypoint x="105.0" y="97.0"></omgdi:waypoint>
         <omgdi:waypoint x="150.0" y="97.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
@@ -113,7 +98,7 @@ Alle Dokumente vorhanden, unterschrieben und versandt.</text>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow18" id="BPMNEdge_flow18">
         <omgdi:waypoint x="485.0" y="147.0"></omgdi:waypoint>
-        <omgdi:waypoint x="486.0" y="204.0"></omgdi:waypoint>
+        <omgdi:waypoint x="485.0" y="210.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow19" id="BPMNEdge_flow19">
         <omgdi:waypoint x="1013.0" y="97.0"></omgdi:waypoint>
@@ -146,14 +131,6 @@ Alle Dokumente vorhanden, unterschrieben und versandt.</text>
       <bpmndi:BPMNEdge bpmnElement="association8" id="BPMNEdge_association8">
         <omgdi:waypoint x="725.0" y="220.0"></omgdi:waypoint>
         <omgdi:waypoint x="792.0" y="140.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="association9" id="BPMNEdge_association9">
-        <omgdi:waypoint x="120.0" y="180.0"></omgdi:waypoint>
-        <omgdi:waypoint x="202.0" y="139.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="association10" id="BPMNEdge_association10">
-        <omgdi:waypoint x="957.0" y="143.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1064.0" y="180.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

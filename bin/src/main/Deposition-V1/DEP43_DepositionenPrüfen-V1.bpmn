@@ -43,10 +43,6 @@
     </textAnnotation>
     <association id="association1" sourceRef="textannotation1" targetRef="usertask4"></association>
     <association id="association2" sourceRef="U43004" targetRef="textannotation1"></association>
-    <textAnnotation id="textannotation2">
-      <text>CHECKPOINT</text>
-    </textAnnotation>
-    <association id="association3" sourceRef="U43004" targetRef="textannotation2"></association>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_DepositionenPruefen.depositionen.gerichte.bs.ch-V1">
     <bpmndi:BPMNPlane bpmnElement="DepositionenPruefen.depositionen.gerichte.bs.ch-V1" id="BPMNPlane_DepositionenPruefen.depositionen.gerichte.bs.ch-V1">
@@ -100,9 +96,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
         <omgdc:Bounds height="71.0" width="127.0" x="500.0" y="280.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="textannotation2" id="BPMNShape_textannotation2">
-        <omgdc:Bounds height="50.0" width="100.0" x="560.0" y="40.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
         <omgdi:waypoint x="240.0" y="175.0"></omgdi:waypoint>
@@ -197,10 +190,6 @@
       <bpmndi:BPMNEdge bpmnElement="association2" id="BPMNEdge_association2">
         <omgdi:waypoint x="572.0" y="212.0"></omgdi:waypoint>
         <omgdi:waypoint x="563.0" y="280.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="association3" id="BPMNEdge_association3">
-        <omgdi:waypoint x="572.0" y="139.0"></omgdi:waypoint>
-        <omgdi:waypoint x="610.0" y="90.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

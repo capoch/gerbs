@@ -72,7 +72,6 @@
       <sequenceFlow id="flow31" sourceRef="usertask15" targetRef="usertask16"></sequenceFlow>
       <exclusiveGateway id="exclusivegateway4" name="Exclusive Gateway"></exclusiveGateway>
       <sequenceFlow id="flow32" sourceRef="usertask16" targetRef="exclusivegateway4"></sequenceFlow>
-      <userTask id="U12204" name="U12204 Buchungen gemäss Rückantwort Personalbüro durchführen "></userTask>
       <exclusiveGateway id="exclusivegateway5" name="Exclusive Gateway"></exclusiveGateway>
       <sequenceFlow id="flow34" sourceRef="U12204" targetRef="exclusivegateway5"></sequenceFlow>
       <endEvent id="endevent3" name="End"></endEvent>

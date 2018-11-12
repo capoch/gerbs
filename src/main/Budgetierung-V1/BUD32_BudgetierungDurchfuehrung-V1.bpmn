@@ -1,67 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
-  <process id="BudgetierungDurchfuehrung.budgetierung.iks.gerichte.bs.ch-V1" name="Budgetierung Durchführung (Subprozess) V1.0.0" isExecutable="true">
-    <documentation>Nächste Task ID: x12029</documentation>
+  <collaboration id="Collaboration">
+    <participant id="pool1" name="Kanton BS" processRef="process_pool1"></participant>
+    <participant id="pool2" name="Gerichte BS" processRef="process_pool2"></participant>
+  </collaboration>
+  <process id="process_pool1" name="process_pool1" isExecutable="true">
+    <laneSet id="laneSet_process_pool1">
+      <lane id="lane1" name="Finanzverwaltung">
+        <flowNodeRef>U32002</flowNodeRef>
+        <flowNodeRef>usertask2</flowNodeRef>
+      </lane>
+    </laneSet>
+    <userTask id="usertask2" name="U32001 Informelle Revision mit FD und Kanton"></userTask>
+    <sequenceFlow id="flow3" sourceRef="usertask2" targetRef="U32003"></sequenceFlow>
+    <textAnnotation id="textannotation1">
+      <text>Ende April / Anfangs Mai
+
+VCGer + Chef (Vorsitzender Gerichtsrat / Departementsleiter)
+Finanzchef Finanzdepartement + Chef (Departementsleitung Finanzdirekttion --&gt; Regierungsrat des Kantons)</text>
+    </textAnnotation>
+    <textAnnotation id="textannotation3">
+      <text>FD gibt Vorgaben zurück (ggfs. mit leichten Anpassungen, z.B. Mieterhöhunhen, welche aber ggf. dann schon fix alloziiert sind) an Gerichte Zurück
+</text>
+    </textAnnotation>
+    <association id="association8" sourceRef="textannotation3" targetRef="U32002"></association>
+    <association id="association9" sourceRef="textannotation3" targetRef="U32002"></association>
+    <association id="association11" sourceRef="textannotation3" targetRef="usertask2"></association>
+  </process>
+  <process id="process_pool2" name="process_pool2" isExecutable="true">
+    <laneSet id="laneSet_process_pool2">
+      <lane id="lane2" name="VCGer">
+        <flowNodeRef>startevent1</flowNodeRef>
+        <flowNodeRef>U32005</flowNodeRef>
+        <flowNodeRef>endevent3</flowNodeRef>
+        <flowNodeRef>U32001 </flowNodeRef>
+        <flowNodeRef>U32003</flowNodeRef>
+      </lane>
+      <lane id="lane3" name="Gerichte / VCs">
+        <flowNodeRef>usertask1</flowNodeRef>
+      </lane>
+      <lane id="lane4" name="Rechnungswesen">
+        <flowNodeRef>U32004</flowNodeRef>
+      </lane>
+    </laneSet>
     <startEvent id="startevent1" name="Start"></startEvent>
-    <userTask id="U32001 " name="U32001 Informelle Revision mit FD und Kanton"></userTask>
-    <userTask id="U32002" name="U32002 Budget provisorisch bestätigen (FD)"></userTask>
-    <userTask id="U32003" name="U32003 Budgets intern unter den Gerichten verteilen"></userTask>
-    <userTask id="U32004" name="U32004 Budgetdetails in SAP eingeben"></userTask>
-    <userTask id="U32005" name="U32005 Details konsolidierte Budgets überprüfen"></userTask>
+    <userTask id="U32005" name="U32006 Details konsolidierte Budgets überprüfen"></userTask>
     <endEvent id="endevent3" name="End"></endEvent>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U32001 "></sequenceFlow>
-    <sequenceFlow id="flow2" sourceRef="U32001 " targetRef="U32002"></sequenceFlow>
-    <sequenceFlow id="flow3" sourceRef="U32002" targetRef="U32003"></sequenceFlow>
-    <sequenceFlow id="flow4" sourceRef="U32003" targetRef="U32004"></sequenceFlow>
-    <sequenceFlow id="flow5" sourceRef="U32004" targetRef="U32005"></sequenceFlow>
-    <sequenceFlow id="flow6" sourceRef="U32005" targetRef="endevent3"></sequenceFlow>
+    <userTask id="U32001 " name="U32001 Informelle Revision mit FD und Kanton"></userTask>
+    <sequenceFlow id="flow2" sourceRef="U32001 " targetRef="usertask2"></sequenceFlow>
+    <userTask id="U32003" name="U32003 Budgets intern unter den Gerichten verteilen"></userTask>
+    <sequenceFlow id="flow4" sourceRef="U32003" targetRef="usertask1"></sequenceFlow>
+    <userTask id="usertask1" name="U32004 Budgetbesprechung mit RW"></userTask>
+    <sequenceFlow id="flow5" sourceRef="usertask1" targetRef="U32004"></sequenceFlow>
+    <userTask id="U32004" name="U32005 Budgetdetails in SAP eingeben"></userTask>
+    <sequenceFlow id="flow6" sourceRef="U32004" targetRef="U32005"></sequenceFlow>
+    <sequenceFlow id="flow7" sourceRef="U32005" targetRef="endevent3"></sequenceFlow>
+    <textAnnotation id="textannotation4">
+      <text>Ende April / Anfangs Mai
+
+VCGer + Chef (Vorsitzender Gerichtsrat / Departementsleiter)
+Finanzchef Finanzdepartement + Chef (Departementsleitung Finanzdirekttion --&gt; Regierungsrat des Kantons)</text>
+    </textAnnotation>
+    <association id="association10" sourceRef="U32001 " targetRef="textannotation4"></association>
+    <textAnnotation id="textannotation5">
+      <text>CHECKPOINT 2: 
+Abschluss Budgetüberprüfung</text>
+    </textAnnotation>
+    <association id="association12" sourceRef="textannotation5" targetRef="U32005"></association>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_BudgetierungDurchfuehrung.budgetierung.iks.gerichte.bs.ch-V1">
-    <bpmndi:BPMNPlane bpmnElement="BudgetierungDurchfuehrung.budgetierung.iks.gerichte.bs.ch-V1" id="BPMNPlane_BudgetierungDurchfuehrung.budgetierung.iks.gerichte.bs.ch-V1">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_Collaboration">
+    <bpmndi:BPMNPlane bpmnElement="Collaboration" id="BPMNPlane_Collaboration">
+      <bpmndi:BPMNShape bpmnElement="pool1" id="BPMNShape_pool1">
+        <omgdc:Bounds height="150.0" width="1221.0" x="80.0" y="499.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="lane1" id="BPMNShape_lane1">
+        <omgdc:Bounds height="150.0" width="1201.0" x="100.0" y="499.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="pool2" id="BPMNShape_pool2">
+        <omgdc:Bounds height="450.0" width="1221.0" x="80.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="lane2" id="BPMNShape_lane2">
+        <omgdc:Bounds height="150.0" width="1201.0" x="100.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="lane3" id="BPMNShape_lane3">
+        <omgdc:Bounds height="150.0" width="1201.0" x="100.0" y="200.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="lane4" id="BPMNShape_lane4">
+        <omgdc:Bounds height="150.0" width="1201.0" x="100.0" y="350.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask2" id="BPMNShape_usertask2">
+        <omgdc:Bounds height="81.0" width="105.0" x="350.0" y="530.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
+        <omgdc:Bounds height="121.0" width="171.0" x="139.0" y="680.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="textannotation3" id="BPMNShape_textannotation3">
+        <omgdc:Bounds height="121.0" width="151.0" x="380.0" y="670.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
-        <omgdc:Bounds height="35.0" width="35.0" x="240.0" y="63.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U32001 " id="BPMNShape_U32001 ">
-        <omgdc:Bounds height="81.0" width="105.0" x="320.0" y="40.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U32002" id="BPMNShape_U32002">
-        <omgdc:Bounds height="81.0" width="105.0" x="460.0" y="40.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U32003" id="BPMNShape_U32003">
-        <omgdc:Bounds height="81.0" width="105.0" x="600.0" y="40.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="U32004" id="BPMNShape_U32004">
-        <omgdc:Bounds height="81.0" width="105.0" x="740.0" y="40.0"></omgdc:Bounds>
+        <omgdc:Bounds height="35.0" width="35.0" x="130.0" y="109.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="U32005" id="BPMNShape_U32005">
-        <omgdc:Bounds height="81.0" width="105.0" x="880.0" y="40.0"></omgdc:Bounds>
+        <omgdc:Bounds height="81.0" width="105.0" x="1080.0" y="86.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endevent3" id="BPMNShape_endevent3">
-        <omgdc:Bounds height="35.0" width="35.0" x="1040.0" y="63.0"></omgdc:Bounds>
+        <omgdc:Bounds height="35.0" width="35.0" x="1230.0" y="109.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U32001 " id="BPMNShape_U32001 ">
+        <omgdc:Bounds height="81.0" width="105.0" x="190.0" y="86.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U32003" id="BPMNShape_U32003">
+        <omgdc:Bounds height="81.0" width="105.0" x="550.0" y="85.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+        <omgdc:Bounds height="81.0" width="105.0" x="720.0" y="230.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U32004" id="BPMNShape_U32004">
+        <omgdc:Bounds height="81.0" width="105.0" x="900.0" y="380.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="textannotation4" id="BPMNShape_textannotation4">
+        <omgdc:Bounds height="131.0" width="171.0" x="340.0" y="60.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="textannotation5" id="BPMNShape_textannotation5">
+        <omgdc:Bounds height="61.0" width="120.0" x="920.0" y="70.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="455.0" y="570.0"></omgdi:waypoint>
+        <omgdi:waypoint x="504.0" y="570.0"></omgdi:waypoint>
+        <omgdi:waypoint x="504.0" y="122.0"></omgdi:waypoint>
+        <omgdi:waypoint x="550.0" y="125.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="association11" id="BPMNEdge_association11">
+        <omgdi:waypoint x="455.0" y="670.0"></omgdi:waypoint>
+        <omgdi:waypoint x="402.0" y="611.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
-        <omgdi:waypoint x="275.0" y="80.0"></omgdi:waypoint>
-        <omgdi:waypoint x="320.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="165.0" y="126.0"></omgdi:waypoint>
+        <omgdi:waypoint x="190.0" y="126.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
-        <omgdi:waypoint x="425.0" y="80.0"></omgdi:waypoint>
-        <omgdi:waypoint x="460.0" y="80.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
-        <omgdi:waypoint x="565.0" y="80.0"></omgdi:waypoint>
-        <omgdi:waypoint x="600.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="295.0" y="126.0"></omgdi:waypoint>
+        <omgdi:waypoint x="312.0" y="127.0"></omgdi:waypoint>
+        <omgdi:waypoint x="312.0" y="569.0"></omgdi:waypoint>
+        <omgdi:waypoint x="350.0" y="570.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
-        <omgdi:waypoint x="705.0" y="80.0"></omgdi:waypoint>
-        <omgdi:waypoint x="740.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="655.0" y="125.0"></omgdi:waypoint>
+        <omgdi:waypoint x="683.0" y="126.0"></omgdi:waypoint>
+        <omgdi:waypoint x="683.0" y="269.0"></omgdi:waypoint>
+        <omgdi:waypoint x="720.0" y="270.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
-        <omgdi:waypoint x="845.0" y="80.0"></omgdi:waypoint>
-        <omgdi:waypoint x="880.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="825.0" y="270.0"></omgdi:waypoint>
+        <omgdi:waypoint x="857.0" y="271.0"></omgdi:waypoint>
+        <omgdi:waypoint x="857.0" y="419.0"></omgdi:waypoint>
+        <omgdi:waypoint x="900.0" y="420.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
-        <omgdi:waypoint x="985.0" y="80.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1040.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1005.0" y="420.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1047.0" y="419.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1047.0" y="127.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1080.0" y="126.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="1185.0" y="126.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1230.0" y="126.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="association10" id="BPMNEdge_association10">
+        <omgdi:waypoint x="295.0" y="126.0"></omgdi:waypoint>
+        <omgdi:waypoint x="340.0" y="125.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="association12" id="BPMNEdge_association12">
+        <omgdi:waypoint x="1040.0" y="100.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1080.0" y="126.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

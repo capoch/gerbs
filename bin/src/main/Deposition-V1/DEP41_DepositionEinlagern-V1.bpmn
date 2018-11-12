@@ -29,7 +29,7 @@
     <sequenceFlow id="flow12" sourceRef="U41004" targetRef="parallelgateway1"></sequenceFlow>
     <sequenceFlow id="flow13" sourceRef="U41006" targetRef="U41010"></sequenceFlow>
     <parallelGateway id="parallelgateway5" name="Parallel Gateway"></parallelGateway>
-    <sequenceFlow id="flow17" sourceRef="U41007" targetRef="parallelgateway2"></sequenceFlow>
+    <sequenceFlow id="flow17" sourceRef="U41009" targetRef="parallelgateway2"></sequenceFlow>
     <sequenceFlow id="flow18" sourceRef="U41010" targetRef="parallelgateway5"></sequenceFlow>
     <sequenceFlow id="flow19" sourceRef="U41009" targetRef="parallelgateway5"></sequenceFlow>
     <sequenceFlow id="flow20" sourceRef="U41008" targetRef="parallelgateway5"></sequenceFlow>
@@ -58,14 +58,6 @@
     <association id="association2" sourceRef="usertask10" targetRef="textannotation2"></association>
     <association id="association3" sourceRef="textannotation1" targetRef="U41005"></association>
     <association id="association4" sourceRef="textannotation2" targetRef="U41013"></association>
-    <textAnnotation id="textannotation3">
-      <text>falls nicht versiegelt geliefert</text>
-    </textAnnotation>
-    <association id="association5" sourceRef="textannotation3" targetRef="U41006"></association>
-    <textAnnotation id="textannotation4">
-      <text>CHECKPOINT 1</text>
-    </textAnnotation>
-    <association id="association6" sourceRef="U41007" targetRef="textannotation4"></association>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_DepositionEinlagern.depositionen.iks.gerichte.bs.ch-V1">
     <bpmndi:BPMNPlane bpmnElement="DepositionEinlagern.depositionen.iks.gerichte.bs.ch-V1" id="BPMNPlane_DepositionEinlagern.depositionen.iks.gerichte.bs.ch-V1">
@@ -129,12 +121,6 @@
       <bpmndi:BPMNShape bpmnElement="textannotation2" id="BPMNShape_textannotation2">
         <omgdc:Bounds height="61.0" width="201.0" x="1558.0" y="140.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="textannotation3" id="BPMNShape_textannotation3">
-        <omgdc:Bounds height="50.0" width="100.0" x="718.0" y="580.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="textannotation4" id="BPMNShape_textannotation4">
-        <omgdc:Bounds height="50.0" width="100.0" x="1020.0" y="110.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
         <omgdi:waypoint x="36.0" y="378.0"></omgdi:waypoint>
         <omgdi:waypoint x="71.0" y="378.0"></omgdi:waypoint>
@@ -187,8 +173,8 @@
         <omgdi:waypoint x="1120.0" y="491.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow17" id="BPMNEdge_flow17">
-        <omgdi:waypoint x="989.0" y="261.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1042.0" y="261.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1175.0" y="338.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1062.0" y="281.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow18" id="BPMNEdge_flow18">
         <omgdi:waypoint x="1231.0" y="491.0"></omgdi:waypoint>
@@ -223,14 +209,6 @@
       <bpmndi:BPMNEdge bpmnElement="association4" id="BPMNEdge_association4">
         <omgdi:waypoint x="1658.0" y="201.0"></omgdi:waypoint>
         <omgdi:waypoint x="1714.0" y="338.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="association5" id="BPMNEdge_association5">
-        <omgdi:waypoint x="768.0" y="580.0"></omgdi:waypoint>
-        <omgdi:waypoint x="767.0" y="532.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="association6" id="BPMNEdge_association6">
-        <omgdi:waypoint x="933.0" y="221.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1070.0" y="160.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

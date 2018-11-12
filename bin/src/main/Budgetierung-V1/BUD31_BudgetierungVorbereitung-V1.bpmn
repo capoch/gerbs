@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.gerichte.bs.ch/prozesse/iks">
+  <process id="BudgetierungVorbereitung.budgetierung.iks.gerichte.bs.ch-V1" name="Budgetierung Vorbereitung (Subprozess) V1.0.0" isExecutable="true">
+    <endEvent id="endevent1" name="End"></endEvent>
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <userTask id="U31003" name="U31003 Budgetanträge stellen"></userTask>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U31001"></sequenceFlow>
+    <userTask id="U31005" name="U31005 Präsentation Gerichtsrat"></userTask>
+    <sequenceFlow id="flow5" sourceRef="U31005" targetRef="endevent1"></sequenceFlow>
+    <userTask id="U31001" name="U31001 Fristen nach Terminplan FV definieren"></userTask>
+    <userTask id="usertask3" name="U31002 Budget Vorjahr prüfen"></userTask>
+    <sequenceFlow id="flow6" sourceRef="U31001" targetRef="usertask3"></sequenceFlow>
+    <sequenceFlow id="flow7" sourceRef="usertask3" targetRef="U31003"></sequenceFlow>
+    <userTask id="U31004" name="U31004 Budgetanträge konsolidieren (VCG)"></userTask>
+    <sequenceFlow id="flow8" sourceRef="U31003" targetRef="U31004"></sequenceFlow>
+    <sequenceFlow id="flow9" sourceRef="U31004" targetRef="U31005"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_BudgetierungVorbereitung.budgetierung.iks.gerichte.bs.ch-V1">
+    <bpmndi:BPMNPlane bpmnElement="BudgetierungVorbereitung.budgetierung.iks.gerichte.bs.ch-V1" id="BPMNPlane_BudgetierungVorbereitung.budgetierung.iks.gerichte.bs.ch-V1">
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="970.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="164.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U31003" id="BPMNShape_U31003">
+        <omgdc:Bounds height="81.0" width="105.0" x="520.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U31005" id="BPMNShape_U31005">
+        <omgdc:Bounds height="81.0" width="105.0" x="810.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U31001" id="BPMNShape_U31001">
+        <omgdc:Bounds height="81.0" width="106.0" x="230.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask3" id="BPMNShape_usertask3">
+        <omgdc:Bounds height="76.0" width="105.0" x="371.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="U31004" id="BPMNShape_U31004">
+        <omgdc:Bounds height="81.0" width="105.0" x="660.0" y="27.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="199.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="230.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="915.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="970.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="336.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="371.0" y="68.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="476.0" y="68.0"></omgdi:waypoint>
+        <omgdi:waypoint x="520.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
+        <omgdi:waypoint x="625.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="660.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow9" id="BPMNEdge_flow9">
+        <omgdi:waypoint x="765.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="810.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
