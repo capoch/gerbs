@@ -8,25 +8,25 @@
     <userTask id="U42003" name="U42003 Depositionsobjekt aus Safe holen"></userTask>
     <parallelGateway id="parallelgateway1" name="Parallel Gateway"></parallelGateway>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U42001"></sequenceFlow>
-    <sequenceFlow id="flow2" sourceRef="U42001" targetRef="U42009"></sequenceFlow>
-    <sequenceFlow id="flow3" sourceRef="parallelgateway1" targetRef="U42009"></sequenceFlow>
-    <sequenceFlow id="flow4" sourceRef="parallelgateway1" targetRef="U42009"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="U42001" targetRef="U42002"></sequenceFlow>
+    <sequenceFlow id="flow3" sourceRef="parallelgateway1" targetRef="U42003"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="parallelgateway1" targetRef="U42005"></sequenceFlow>
     <userTask id="U42004" name="U42004 Originalquittung durch Abholer visieren"></userTask>
-    <sequenceFlow id="flow5" sourceRef="U42008" targetRef="parallelgateway2"></sequenceFlow>
-    <sequenceFlow id="flow6" sourceRef="U42009" targetRef="U42004"></sequenceFlow>
+    <sequenceFlow id="flow5" sourceRef="U42006" targetRef="parallelgateway2"></sequenceFlow>
+    <sequenceFlow id="flow6" sourceRef="U42003" targetRef="U42004"></sequenceFlow>
     <userTask id="U42007" name="U42007 Herausgabe Depositionsobjekt"></userTask>
     <userTask id="U42008" name="U42008 Excel Liste aktualisieren"></userTask>
     <userTask id="U42009" name="U42009 Originalquittung und Ausdruck in Depositionsordner ablegen"></userTask>
-    <sequenceFlow id="flow9" sourceRef="U42009" targetRef="U42008"></sequenceFlow>
+    <sequenceFlow id="flow9" sourceRef="U42005" targetRef="U42006"></sequenceFlow>
     <sequenceFlow id="flow10" sourceRef="U42008" targetRef="U42009"></sequenceFlow>
     <sequenceFlow id="flow11" sourceRef="U42009" targetRef="endevent1"></sequenceFlow>
     <userTask id="U42002" name="U42002 Verfügung prüfen"></userTask>
-    <sequenceFlow id="flow12" sourceRef="U42009" targetRef="parallelgateway1"></sequenceFlow>
+    <sequenceFlow id="flow12" sourceRef="U42002" targetRef="parallelgateway1"></sequenceFlow>
     <userTask id="U42006" name="U42006 Prüfung Quittungskopie(Stempel, Unterschrift)"></userTask>
     <parallelGateway id="parallelgateway2" name="Parallel Gateway"></parallelGateway>
-    <sequenceFlow id="flow13" sourceRef="parallelgateway2" targetRef="U42009"></sequenceFlow>
+    <sequenceFlow id="flow13" sourceRef="parallelgateway2" targetRef="U42007"></sequenceFlow>
     <sequenceFlow id="flow14" sourceRef="U42004" targetRef="parallelgateway2"></sequenceFlow>
-    <sequenceFlow id="flow15" sourceRef="U42009" targetRef="U42008"></sequenceFlow>
+    <sequenceFlow id="flow15" sourceRef="U42007" targetRef="U42008"></sequenceFlow>
     <textAnnotation id="textannotation1">
       <text>Übergabe an Abholer gegen Unterschrift auf Originalquittung</text>
     </textAnnotation>
@@ -96,28 +96,28 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
         <omgdi:waypoint x="165.0" y="147.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1100.0" y="147.0"></omgdi:waypoint>
+        <omgdi:waypoint x="210.0" y="147.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
         <omgdi:waypoint x="380.0" y="127.0"></omgdi:waypoint>
         <omgdi:waypoint x="380.0" y="49.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1152.0" y="103.0"></omgdi:waypoint>
+        <omgdi:waypoint x="420.0" y="49.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
         <omgdi:waypoint x="400.0" y="147.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1100.0" y="147.0"></omgdi:waypoint>
+        <omgdi:waypoint x="420.0" y="147.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
-        <omgdi:waypoint x="960.0" y="147.0"></omgdi:waypoint>
-        <omgdi:waypoint x="770.0" y="147.0"></omgdi:waypoint>
+        <omgdi:waypoint x="666.0" y="147.0"></omgdi:waypoint>
+        <omgdi:waypoint x="730.0" y="147.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
-        <omgdi:waypoint x="1152.0" y="103.0"></omgdi:waypoint>
-        <omgdi:waypoint x="613.0" y="89.0"></omgdi:waypoint>
+        <omgdi:waypoint x="525.0" y="49.0"></omgdi:waypoint>
+        <omgdi:waypoint x="561.0" y="49.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow9" id="BPMNEdge_flow9">
-        <omgdi:waypoint x="1100.0" y="147.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1065.0" y="147.0"></omgdi:waypoint>
+        <omgdi:waypoint x="525.0" y="147.0"></omgdi:waypoint>
+        <omgdi:waypoint x="561.0" y="147.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow10" id="BPMNEdge_flow10">
         <omgdi:waypoint x="1065.0" y="147.0"></omgdi:waypoint>
@@ -128,12 +128,12 @@
         <omgdi:waypoint x="1264.0" y="147.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow12" id="BPMNEdge_flow12">
-        <omgdi:waypoint x="1100.0" y="147.0"></omgdi:waypoint>
-        <omgdi:waypoint x="400.0" y="147.0"></omgdi:waypoint>
+        <omgdi:waypoint x="315.0" y="147.0"></omgdi:waypoint>
+        <omgdi:waypoint x="360.0" y="147.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow13" id="BPMNEdge_flow13">
         <omgdi:waypoint x="770.0" y="147.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1100.0" y="147.0"></omgdi:waypoint>
+        <omgdi:waypoint x="820.0" y="147.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow14" id="BPMNEdge_flow14">
         <omgdi:waypoint x="666.0" y="49.0"></omgdi:waypoint>
@@ -141,8 +141,8 @@
         <omgdi:waypoint x="750.0" y="127.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow15" id="BPMNEdge_flow15">
-        <omgdi:waypoint x="1100.0" y="147.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1065.0" y="147.0"></omgdi:waypoint>
+        <omgdi:waypoint x="925.0" y="147.0"></omgdi:waypoint>
+        <omgdi:waypoint x="960.0" y="147.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="association1" id="BPMNEdge_association1">
         <omgdi:waypoint x="765.0" y="250.0"></omgdi:waypoint>

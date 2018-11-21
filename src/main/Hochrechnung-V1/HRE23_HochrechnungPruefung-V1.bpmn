@@ -8,7 +8,7 @@
     <userTask id="U23005" name="U23005 Zusammenstellung Deckblatt &amp; Begründungen"></userTask>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="U23001"></sequenceFlow>
     <sequenceFlow id="flow2" sourceRef="U23001" targetRef="U23002"></sequenceFlow>
-    <serviceTask id="M23007" name="M23007 Begründungen und Massnahmen per E-Mail versenden" activiti:type="mail"></serviceTask>
+    <serviceTask id="M23007" name="M23007 Begründungen und Massnahmen an FD versenden" activiti:type="mail"></serviceTask>
     <userTask id="U23003" name="U23003 Begründungen an VCG verschicken"></userTask>
     <sequenceFlow id="flow16" sourceRef="U23002" targetRef="U23003"></sequenceFlow>
     <boundaryEvent id="boundarytimer3" name="Timer" attachedToRef="U23003" cancelActivity="false">

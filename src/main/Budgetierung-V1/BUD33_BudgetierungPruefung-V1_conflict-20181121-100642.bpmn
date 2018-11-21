@@ -3,12 +3,6 @@
   <collaboration id="Collaboration">
     <participant id="pool1" name="Kanton BS" processRef="process_pool1"></participant>
     <participant id="pool2" name="Gerichte BS" processRef="process_pool2"></participant>
-    <messageFlow id="messageflow1" sourceRef="parallelgateway1" targetRef="usertask3"></messageFlow>
-    <messageFlow id="messageflow2" sourceRef="usertask5" targetRef="parallelgateway2"></messageFlow>
-    <messageFlow id="messageflow3" sourceRef="exclusivegateway1" targetRef="usertask7"></messageFlow>
-    <messageFlow id="messageflow4" sourceRef="usertask8" targetRef="exclusivegateway2"></messageFlow>
-    <messageFlow id="messageflow5" sourceRef="exclusivegateway3" targetRef="usertask11"></messageFlow>
-    <messageFlow id="messageflow6" sourceRef="usertask11" targetRef="exclusivegateway4"></messageFlow>
     <messageFlow id="messageflow7" sourceRef="parallelgateway1" targetRef="U33004"></messageFlow>
     <messageFlow id="messageflow8" sourceRef="U33006" targetRef="parallelgateway2"></messageFlow>
     <messageFlow id="messageflow9" sourceRef="exclusivegateway1" targetRef="U33009"></messageFlow>
@@ -134,7 +128,7 @@
         <omgdc:Bounds height="40.0" width="40.0" x="1040.0" y="657.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="U33007" id="BPMNShape_U33007">
-        <omgdc:Bounds height="75.0" width="105.0" x="1150.0" y="640.0"></omgdc:Bounds>
+        <omgdc:Bounds height="75.0" width="105.0" x="1130.0" y="640.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="M33008" id="BPMNShape_M33008">
         <omgdc:Bounds height="81.0" width="111.0" x="1350.0" y="472.0"></omgdc:Bounds>
@@ -167,7 +161,7 @@
         <omgdc:Bounds height="35.0" width="35.0" x="110.0" y="488.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="textannotation1" id="BPMNShape_textannotation1">
-        <omgdc:Bounds height="50.0" width="100.0" x="2640.0" y="500.0"></omgdc:Bounds>
+        <omgdc:Bounds height="50.0" width="101.0" x="2610.0" y="750.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="U33004" id="BPMNShape_U33004">
         <omgdc:Bounds height="75.0" width="105.0" x="580.0" y="260.0"></omgdc:Bounds>
@@ -236,10 +230,10 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
         <omgdi:waypoint x="1080.0" y="677.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1150.0" y="677.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1130.0" y="677.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
-        <omgdi:waypoint x="1255.0" y="677.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1235.0" y="677.0"></omgdi:waypoint>
         <omgdi:waypoint x="1290.0" y="677.0"></omgdi:waypoint>
         <omgdi:waypoint x="1290.0" y="512.0"></omgdi:waypoint>
         <omgdi:waypoint x="1350.0" y="512.0"></omgdi:waypoint>
@@ -283,8 +277,8 @@
         <omgdi:waypoint x="210.0" y="506.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="association1" id="BPMNEdge_association1">
-        <omgdi:waypoint x="2690.0" y="550.0"></omgdi:waypoint>
-        <omgdi:waypoint x="2612.0" y="630.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2660.0" y="750.0"></omgdi:waypoint>
+        <omgdi:waypoint x="2612.0" y="701.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
         <omgdi:waypoint x="685.0" y="297.0"></omgdi:waypoint>
